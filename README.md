@@ -25,6 +25,8 @@ Find me tinkering at
 - [bkataru's playgrounds](https://github.com/bkataru-playgrounds)
 - [bkataru's forks](https://github.com/bkataru-forks)
 
+Check out [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering.
+
 <!--
 **BK-Modding/BK-Modding** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

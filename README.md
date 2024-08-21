@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-I'm a physics graduate with a bent for computing working in neutrino phenomenology. I spend my time thinking about how to marry fast execution speeds with particle physics and how to build robust software for high energy physics.
+I'm a physics graduate with a bent for computing working in neutrino phenomenology. I spend my time thinking about how to marry fast execution speeds with particle physics and trying to hack together robust software for high energy physics.
 
 Having started my programming career as a modder for the GTA series of games over a decade ago, these days I keep hopping between
 

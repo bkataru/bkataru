@@ -1,5 +1,30 @@
 ### Hi there 👋
 
+I'm a physics graduate with a bent for computing working in neutrino phenomenology. I spend my time thinking about how to marry fast execution speeds with particle physics and how to build robust software for high energy physics.
+
+Having started my programming career as a modder for the GTA series of games over a decade ago, these days I keep hopping between
+
+- scientific computing
+- numerical analysis
+- data science
+- AI
+- web dev
+- mobile dev
+- game dev
+- systems engineering
+- computation theory
+- programming language design & type theory
+
+in no particular order. 
+
+Find me tinkering at
+
+- [bkataru's workshop](https://github.com/bkataru-workshop)
+- [bkataru's recreations](https://github.com/bkataru-recreations)
+- [bkataru's experiments](https://github.com/bkataru-experiments)
+- [bkataru's playgrounds](https://github.com/bkataru-playgrounds)
+- [bkataru's forks](https://github.com/bkataru-forks)
+
 <!--
 **BK-Modding/BK-Modding** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

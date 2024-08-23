@@ -32,8 +32,13 @@ Find me tinkering at
 Check out [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering.
 
 <div align="center"> 
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bkataru&langs_count=20&theme=dark&layout=compact">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bkataru&langs_count=20&theme=radical&layout=compact">
 </div>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=bkataru&show_icons=true&theme=radical">
+</div>
+
 
 <!--
 **BK-Modding/BK-Modding** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

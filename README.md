@@ -1,4 +1,4 @@
-### Hi there 👋
+<h1 align="center">Hello there 👋, I'm Baalateja Kataru</h1>
 
 I'm a physics graduate with a bent for computing working in neutrino phenomenology. I spend my time thinking about how to marry fast execution speeds with particle physics and trying to hack together robust software for high energy physics.
 

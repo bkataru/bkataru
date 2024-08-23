@@ -31,8 +31,6 @@ Find me tinkering at
 
 Check out [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering.
 
----
-
 <div align="center"> 
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bkataru&langs_count=20&theme=merko&layout=donut-vertical">
   <img src="https://github-readme-stats.vercel.app/api?username=bkataru&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&show_icons=true&theme=merko&rank_icon=percentile">

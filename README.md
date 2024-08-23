@@ -1,4 +1,8 @@
-<h1 align="center">Hello there 👋, I'm Baalateja Kataru</h1>
+<h1 align="center">Hello there 👋, I'm Baalateja</h1>
+
+<div align="left"> 
+  <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 
+</div>
 
 I'm a physics graduate with a bent for computing working in neutrino phenomenology. I spend my time thinking about how to marry fast execution speeds with particle physics and trying to hack together robust software for high energy physics.
 
@@ -26,6 +30,10 @@ Find me tinkering at
 - [bkataru's forks](https://github.com/bkataru-forks)
 
 Check out [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering.
+
+<div align="center"> 
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bkataru&langs_count=20&theme=dark&layout=compact">
+</div>
 
 <!--
 **BK-Modding/BK-Modding** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

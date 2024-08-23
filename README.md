@@ -1,6 +1,6 @@
 <h1 align="center">Hello there 👋, I'm Baalateja</h1>
 
-<div align="left"> 
+<div align="center"> 
   <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 
 </div>
 

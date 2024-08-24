@@ -4,20 +4,25 @@
   <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 
 </div>
 
-I'm a physics graduate with a bent for computing working in neutrino phenomenology. I spend my time thinking about how to marry fast execution speeds with particle physics and trying to hack together robust software for high energy physics.
+I'm a physics and mathematics graduate with a bent for computing. In constant pursuit of mastery over the machine at all levels of abstraction. Big-time fanboy of robust, scalable engineering and fast execution speeds. 
 
-Having started my programming career as a modder for the GTA series of games over a decade ago, these days I keep hopping between
+Previously worked on hacking together methods and tools for computational physics in neutrino phenomenology.
+
+Currently grinding on building systems and AI for robots in AgTech that aim to automate organic food production with a focus on scaling organic farming through intelligent equipment and automation in farming processing for mid-size organic farmers. 
+
+I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter & modder for the GTA series of video games. These days, I spend my time recreationally hopping between
 
 - scientific computing
-- numerical analysis
+- numerical methods & analysis
 - data science
-- AI
-- web dev
-- mobile dev
-- game dev
+- AI/ML/DL/CV/NLP
+- robotics & automation
+- web, mobile, & desktop development
+- game development
 - systems engineering
 - computation theory
 - programming language design & type theory
+- devops & infrastructure design
 
 in no particular order. 
 

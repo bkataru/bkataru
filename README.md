@@ -4,11 +4,11 @@
   <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 
 </div>
 
-I'm a physics and mathematics graduate with a bent for computing. In constant pursuit of mastery over the machine at all levels of abstraction. Big-time fanboy of robust, scalable engineering and fast execution speeds. 
+I'm a physics and mathematics graduate with a bent for computing who's in constant pursuit of mastery over the machine at all levels of abstraction. I'm also a big-time fanboy of robust, scalable engineering and fast execution speeds. 
 
-Previously worked on hacking together methods and tools for computational physics in neutrino phenomenology.
+I previously worked on hacking together methods and tools for computational physics in neutrino phenomenology.
 
-Currently grinding on building systems and AI for robots in AgTech that aim to automate organic food production with a focus on scaling organic farming through intelligent equipment and automation in farming processing for mid-size organic farmers. 
+I'm currently grinding on [ZAPTrack](https://zaptrack.store/) to build systems and AI for robots in AgTech that aim to automate organic food production with a focus on scaling organic farming through intelligent equipment and automation in farming processing for mid-size organic farmers. 
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter & modder for the GTA series of video games. These days, I spend my time recreationally hopping between
 

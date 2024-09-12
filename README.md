@@ -4,7 +4,7 @@
   <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 
 </div>
 
-I'm a physics and mathematics graduate with a bent for computing who's in constant pursuit of mastery over the machine at all levels of abstraction. I'm also a big-time fanboy of robust, scalable engineering and fast execution speeds. 
+I'm a physics and mathematics graduate with a bent for computing in constant pursuit of mastery over the machine at all levels of abstraction. I'm also a big-time fanboy of robust, scalable engineering and fast execution speeds. 
 
 I previously worked on hacking together methods and tools for computational physics in neutrino phenomenology.
 

@@ -10,14 +10,12 @@ I previously worked on hacking together methods and tools for computational phys
 
 I'm currently grinding on [ZAPTrack](https://zaptrack.store/) to build systems and AI for robots in AgTech that aim to automate organic food production with a focus on scaling organic farming through intelligent equipment and automation in farming processing for mid-size organic farmers. 
 
-I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter & modder for the GTA series of video games. These days, I spend my time recreationally hopping between
-
+I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. These days, I spend my time recreationally hopping between
 
 - quantum information and computing
 - numerical methods & analysis
 - scientific computing
 - data science and data engineering
-- quantum information and computation
 - AI/ML/DL/CV/NLP
 - robotics & automation
 - web, mobile, & desktop development

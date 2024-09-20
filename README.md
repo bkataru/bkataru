@@ -15,7 +15,7 @@ I started writing code and tinkering with systems as a hobby over a decade ago, 
 - quantum information & computing
 - numerical methods & analysis
 - scientific computing
-- data science and data engineering
+- data science & data engineering
 - AI/ML/DL/CV/NLP
 - robotics & automation
 - web, mobile, & desktop development

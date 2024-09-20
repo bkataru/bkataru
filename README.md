@@ -12,7 +12,7 @@ I'm currently grinding on [ZAPTrack](https://zaptrack.store/) to build systems a
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. These days, I spend my time recreationally hopping between
 
-- quantum information and computing
+- quantum information & computing
 - numerical methods & analysis
 - scientific computing
 - data science and data engineering

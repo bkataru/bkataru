@@ -6,9 +6,11 @@
 
 I'm a physics and mathematics graduate with a bent for computing in constant pursuit of mastery over the machine at all levels of abstraction. I'm also a big-time fanboy of robust, scalable engineering and fast execution speeds. 
 
-I previously worked on hacking together methods and tools for computational physics in neutrino phenomenology.
+I previously worked on:
+- hacking together methods and tools for computational physics in neutrino phenomenology.
+- building systems and AI for robotics in AgTech and automated precision agriculture.
 
-I'm currently grinding on [ZAPTrack](https://zaptrack.store/) to build systems and AI for robots in AgTech that aim to automate organic food production with a focus on scaling organic farming through intelligent equipment and automation in farming processing for mid-size organic farmers. 
+I'm currently working on building, maintaining, and improving tools and systems that make IT Observability easy.
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. These days, I spend my time recreationally hopping between
 

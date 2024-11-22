@@ -23,6 +23,7 @@ I started writing code and tinkering with systems as a hobby over a decade ago, 
 - web, mobile, & desktop development
 - game development
 - systems engineering
+- IT & network engineering
 - computation theory
 - programming language design & type theory
 - devops & infrastructure design

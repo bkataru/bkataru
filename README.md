@@ -49,7 +49,7 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 
 
 <!--
-**BK-Modding/BK-Modding** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**bkataru/bkataru** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
@@ -61,4 +61,6 @@ Here are some ideas to get you started:
 - 📫 How to reach me: ...
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
+
+
 -->

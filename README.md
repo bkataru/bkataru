@@ -9,8 +9,12 @@ I'm a physics and mathematics graduate with a bent for computing in constant pur
 I previously worked on:
 - hacking together methods and tools for computational physics in neutrino phenomenology.
 - building systems and AI for robotics in AgTech and automated precision agriculture.
+- building, maintaining, and improving tools and systems for on-prem IT/network observability.
 
-I'm currently working on building, maintaining, and improving tools and systems that make IT Observability easy.
+I'm currently hacking on an intersection of:
+
+- rust, zig, and the ideas behind modern day systems programming
+- building low-overhead, safe, high performance systems for AI inference, media processing, and computational physics.
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. These days, I spend my time recreationally hopping between
 
@@ -21,6 +25,7 @@ I started writing code and tinkering with systems as a hobby over a decade ago, 
 - AI/ML/DL/CV/NLP
 - robotics & automation
 - web, mobile, & desktop development
+- classical information/coding theory
 - game development
 - systems engineering
 - IT & network engineering

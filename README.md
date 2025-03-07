@@ -14,9 +14,9 @@ I previously worked on:
 I'm currently hacking on an intersection of:
 
 - rust, zig, and the ideas behind modern day systems programming
-- building low-overhead, safe, high performance systems for AI inference, media processing, and computational physics.
+- building low overhead, safe, high performance systems for AI inference, media processing, and computational physics.
 
-I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. These days, I spend my time recreationally hopping between
+I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between
 
 - quantum information & computing
 - numerical methods & analysis

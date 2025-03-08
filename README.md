@@ -1,4 +1,4 @@
-<h1 align="center">Hello there 👋, I'm Baalateja</h1>
+<h1 align="center">Greetings, Programs, I'm Baalateja 👋</h1>
 
 <div align="center"> 
   <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 

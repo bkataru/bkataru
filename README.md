@@ -1,8 +1,14 @@
 <h1 align="center">Greetings, Programs, I'm Baalateja 👋</h1>
 
 <div align="center"> 
+  <img src="https://github.com/bkataru/bkataru/blob/main/igotin.jpg?raw=true" alt="bkataru" /> 
+</div>
+
+<div align="center"> 
   <img src="https://komarev.com/ghpvc/?username=bkataru" alt="bkataru" /> 
 </div>
+
+---
 
 I'm a physics and mathematics graduate with a bent for computing in constant pursuit of mastery over the machine at all levels of abstraction. I'm also a big-time fanboy of robust, scalable engineering and fast execution speeds. 
 

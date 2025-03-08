@@ -12,7 +12,7 @@
 
 I'm a:
 - physics grad with a bent for all things computing
-- student in constant pursuit of mastery over the machine at all levels of abstraction
+- autodidactic polymath in constant pursuit of mastery over the machine at all levels of abstraction
 - big-time fanboy of robust, scalable engineering, and fast execution speeds
 
 I previously worked on:

@@ -21,7 +21,7 @@ I previously worked on:
 - building, maintaining, and improving tools and systems for on-prem IT/network observability.
 
 I'm currently hacking on an intersection of:
-- rust, zig, and the ideas behind modern day systems programming
+- rust, go, zig, and the ideas behind modern day high performance programming.
 - building low overhead, safe, high performance systems for AI inference, media processing, and computational physics.
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between fields such as

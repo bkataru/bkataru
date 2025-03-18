@@ -12,8 +12,13 @@
 
 I'm a:
 - physics grad with a bent for all things computing
-- autodidactic polymath in constant pursuit of mastery over the machine at all levels of abstraction
+- generalist/polymath/autodidact in constant pursuit of mastery over the machine at all levels of abstraction
 - big-time fanboy of robust, scalable engineering, and fast execution speeds
+
+I like:
+- physical systems
+- software systems
+- hardware systems
 
 I previously worked on:
 - hacking together methods and tools for computational physics in neutrino phenomenology.
@@ -24,7 +29,7 @@ I'm currently hacking on an intersection of:
 - rust, go, zig, and the ideas behind modern day high performance programming.
 - building low overhead, safe, high performance systems for AI inference, media processing, and computational physics.
 
-I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between fields such as
+I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between fields such as:
 
 - quantum information & computing
 - numerical methods & analysis

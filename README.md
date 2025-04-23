@@ -1,7 +1,7 @@
 <h1 align="center">Greetings, Programs, I'm Baalateja 👋</h1>
 
 <div align="center"> 
-  <img src="https://github.com/bkataru/bkataru/blob/main/igotin.jpg?raw=true" alt="bkataru" /> 
+  <img src="https://github.com/bkataru/bkataru/blob/main/technomancy.png?raw=true" alt="bkataru" /> 
 </div>
 
 <div align="center"> 

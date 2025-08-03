@@ -58,6 +58,10 @@ Find me tinkering at
 
 Check out [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering.
 
+<div align="center"> 
+  <img src="https://github.com/bkataru/bkataru/blob/main/kalki.jpg?raw=true" alt="kalki" /> 
+</div>
+
 ---
 
 <div align="center"> 

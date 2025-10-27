@@ -67,27 +67,6 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 <div align="center"> 
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bkataru&langs_count=20&theme=merko&layout=donut-vertical" />
   <img src="https://github-readme-stats.vercel.app/api?username=bkataru&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&show_icons=true&theme=merko&rank_icon=percentile" />
-  <!-- 
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=bkataru&theme=tokyonight" />
-  -->
   <img src="https://streak-stats.demolab.com?user=bkataru&theme=tokyonight&hide_border=true" />
   <img src="https://github-profile-trophy.vercel.app/?username=bkataru&theme=matrix&column=5&row=2&margin-w=15&margin-h=15&no-bg=true&no-frame=true" />
 </div>
-
-
-<!--
-**bkataru/bkataru** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
-
-
--->

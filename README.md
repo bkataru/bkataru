@@ -26,25 +26,28 @@ I previously worked on:
 - building, maintaining, and improving tools and systems for on-prem IT/network observability.
 
 I'm currently hacking on an intersection of:
-- rust, go, zig, and the ideas behind modern day high performance programming.
-- building low overhead, safe, high performance systems for AI inference, media processing, and computational physics.
+ - rust, go, zig, c3, hare, and the ideas behind modern day, high performance, systems programming.
+ - building low overhead, safe, and fast systems for AI inference, media processing, and scientific computing.
+ - python, agentic orchestration frameworks, and designing multi-step AI agent systems.
+ - typescript, UI frameworks, and building chatbot frontends for agentic software backends.
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between fields such as:
 
-- quantum information & computing
-- numerical methods & analysis
-- scientific computing
-- data science & data engineering
-- AI/ML/DL/CV/NLP
-- robotics & automation
-- web, mobile, & desktop development
-- classical information/coding theory
-- game development
-- systems engineering
-- IT & network engineering
-- computation theory
-- programming language design & type theory
-- devops & infrastructure design
+ - quantum information/computing
+ - numerical methods/analysis
+ - scientific and high performance computing
+ - data science/engineering
+ - AI/ML/DL/CV/NLP
+ - robotics, automation, and control
+ - IoT, embedded, GPUs, and hardware accelerators
+ - compilers and their backends, LLVM IR, MLIR, optimizations
+ - devtooling and devex
+ - web/mobile/desktop and application development
+ - classical information/coding theory
+ - graphics and game development
+ - IT, network, and systems engineering
+ - devops and infrastructure design
+ - computation, programming language design, automata, and type/category theory
 
 in no particular order. 
 

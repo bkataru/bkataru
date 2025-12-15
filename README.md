@@ -26,10 +26,12 @@ I previously worked on:
 - building, maintaining, and improving tools and systems for on-prem IT/network observability.
 
 I'm currently hacking on an intersection of:
- - rust, go, zig, c3, hare, and the ideas behind modern day, high performance, systems programming.
- - building low overhead, safe, and fast systems for AI inference, media processing, and scientific computing.
- - python, agentic orchestration frameworks, and designing multi-step AI agent systems.
- - typescript, UI frameworks, and building chatbot frontends for agentic software backends.
+ - the fundamentals of nim, swift, rust, go, zig, c3, hare: the ideas behind modern day, high performance, pedal-to-the-metal systems programming, and how they abstract the many moving parts in a machine's architecture.
+- building low overhead, safe, and fast/efficient systems for AI/ML inference pipelines, agentic (gen) AI workflows, media processing tasks, HPC/computational physics routines, and general-purpose scientific computing systems using modern systems programming methodologies.
+- python, agentic orchestration frameworks, and designing multi-step AI agent systems.
+- typescript, UI frameworks, and building chatbot frontends for agentic software backends.
+- designing multi-step, multi-agent, DAG-based orchestrator system runtimes and surrounding tooling in rust & zig for fast, lightweight, efficient, local, general-purpose arbitrary agentic workflows with small language models (SLMs)
+- nim (nimlang), and the quest to discover and document the uncharted capabilities of an obscure yet handily powerful, python-like, systems programming language.
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between fields such as:
 

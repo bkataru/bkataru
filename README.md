@@ -83,4 +83,6 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 
 if you like da work, I'd be happy if you could show your support by buying me a pizza 🍕, it helps keep the lights on and the projects going ☺️
 
-<a href="https://www.buymeacoffee.com/baalateja" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Pizza" style="height: 60px !important;width: 217px !important;" ></a>
+<div align="center"> 
+  <a href="https://www.buymeacoffee.com/baalateja" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Pizza" style="height: 60px !important;width: 217px !important;" ></a>
+</div>

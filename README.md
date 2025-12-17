@@ -73,5 +73,14 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bkataru&langs_count=20&theme=merko&layout=donut-vertical&v=1" />
   <img src="https://github-readme-stats.vercel.app/api?username=bkataru&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&show_icons=true&theme=merko&rank_icon=percentile&v=1" />
   <img src="https://streak-stats.demolab.com?user=bkataru&theme=tokyonight&hide_border=true&v=1" />
-  <img src="https://github-profile-trophy.vercel.app/?username=bkataru&theme=matrix&column=5&row=2&margin-w=15&margin-h=15&no-bg=true&no-frame=true&v=1" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=bkataru&bg_color=000000&color=ffffff&line=ffffff&point=0a91b1&area=true&hide_border=true" />
+  <!-- <img src="https://github-profile-trophy.vercel.app/?username=bkataru&theme=matrix&column=5&row=2&margin-w=15&margin-h=15&no-bg=true&no-frame=true&v=1" /> -->
 </div>
+
+---
+
+## buy me a 🍕 to support da work 💕
+
+if you like da work, I'd be happy if you could show your support by buying me a pizza 🍕, it helps keep the lights on and the projects going ☺️
+
+<a href="https://www.buymeacoffee.com/baalateja" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Pizza" style="height: 60px !important;width: 217px !important;" ></a>

@@ -31,7 +31,7 @@ I'm currently hacking on an intersection of:
 - python, agentic orchestration frameworks, and designing multi-step AI agent systems.
 - typescript, UI frameworks, and building chatbot frontends for agentic software backends.
 - webassembly (wasm), its promise, and languages native to it such as assemblyscript, moonbit.
-- designing multi-step, multi-agent, DAG-based orchestrator system runtimes and surrounding tooling in rust & zig for fast, lightweight, efficient, local, general-purpose arbitrary agentic workflows with small language models (SLMs)
+- designing local AI powered, multi-step, multi-agent, DAG-based orchestrator system runtimes and surrounding tooling in rust, zig, odin, & nim for fast, lightweight, efficient, local, general-purpose arbitrary agentic workflows with small language models (SLMs).
 - nim (nimlang), and the quest to discover and document the uncharted capabilities of an obscure yet handily powerful, python-like, systems programming language.
 
 I started writing code and tinkering with systems as a hobby over a decade ago, beginning my career as a scripter/modder for the GTA series of video games. If I'm not upto something, I usually spend my time recreationally learning about and hopping between fields such as:

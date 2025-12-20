@@ -26,10 +26,11 @@ I previously worked on:
 - building, maintaining, and improving tools and systems for on-prem IT/network observability.
 
 I'm currently hacking on an intersection of:
- - the fundamentals of programming languages such as v, nim, swift, rust, go, zig, odin, c3, hare, moonbit, mojo: the ideas behind modern day, high performance, pedal-to-the-metal systems programming, and how they abstract the many moving parts in a machine's architecture.
+ - the fundamentals of programming languages such as v, nim, swift, rust, go, zig, odin, c3, hare, mojo: the ideas behind modern day, high performance, pedal-to-the-metal systems programming, and how they abstract the many moving parts in a machine's architecture.
 - building low overhead, safe, and fast/efficient systems for AI/ML inference pipelines, agentic (gen) AI workflows, media processing tasks, HPC/computational physics routines, and general-purpose scientific computing systems using modern systems programming methodologies.
 - python, agentic orchestration frameworks, and designing multi-step AI agent systems.
 - typescript, UI frameworks, and building chatbot frontends for agentic software backends.
+- webassembly (wasm), its promise, and languages native to it such as assemblyscript, moonbit.
 - designing multi-step, multi-agent, DAG-based orchestrator system runtimes and surrounding tooling in rust & zig for fast, lightweight, efficient, local, general-purpose arbitrary agentic workflows with small language models (SLMs)
 - nim (nimlang), and the quest to discover and document the uncharted capabilities of an obscure yet handily powerful, python-like, systems programming language.
 

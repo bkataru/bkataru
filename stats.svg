@@ -1,0 +1,36 @@
+<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #69ff97; animation: fadeInAnimation 0.8s ease-in-out forwards; }
+    .stat { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+    .stagger { opacity: 0; animation: fadeInAnimation 0.3s ease-in-out forwards; }
+    .rank-text { font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #69ff97; }
+    .icon { fill: #69ff97; }
+    @keyframes fadeInAnimation { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+  <rect x="0.5" y="0.5" rx="4.5" width="494" height="194" fill="#0a0f0b" stroke="#69ff97"/>
+  <g transform="translate(25, 35)">
+    <text class="header" x="0" y="0">bkataru's GitHub Stats</text>
+  </g>
+  <g transform="translate(25, 55)">
+    <g class="stagger" style="animation-delay: 150ms" transform="translate(0, 21)">
+      <text class="stat">Total Stars Earned: 69</text>
+    </g>
+    <g class="stagger" style="animation-delay: 300ms" transform="translate(0, 42)">
+      <text class="stat">Total Commits (this year): 1,015</text>
+    </g>
+    <g class="stagger" style="animation-delay: 450ms" transform="translate(0, 63)">
+      <text class="stat">Total PRs: 36</text>
+    </g>
+    <g class="stagger" style="animation-delay: 600ms" transform="translate(0, 84)">
+      <text class="stat">Total Issues: 10</text>
+    </g>
+    <g class="stagger" style="animation-delay: 750ms" transform="translate(0, 105)">
+      <text class="stat">Contributed to (last year): 124</text>
+    </g>
+  </g>
+  <g transform="translate(400, 100)">
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#69ff97" stroke-width="5" opacity="0.2"/>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#69ff97" stroke-width="5" stroke-dasharray="251.2" stroke-dashoffset="50" stroke-linecap="round"/>
+    <text class="rank-text" x="0" y="8" text-anchor="middle">A</text>
+  </g>
+</svg>

@@ -1,0 +1,103 @@
+<svg width="450" height="310" viewBox="0 0 450 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #69ff97; }
+    .lang-name { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+    .lang-pct { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+  </style>
+  <rect x="0.5" y="0.5" rx="4.5" width="449" height="309" fill="#0a0f0b" stroke="#69ff97"/>
+  <text class="header" x="25" y="30">Most Used Languages</text>
+  <g transform="translate(5, 30)">
+    <circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#dd1100" stroke-width="30"
+            stroke-dasharray="355.7232946629213 84.09930533707865"
+            stroke-dashoffset="0"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#3572A5" stroke-width="30"
+            stroke-dasharray="37.63730716292134 402.18529283707863"
+            stroke-dashoffset="-355.7232946629213"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#DA5B0B" stroke-width="30"
+            stroke-dasharray="16.149184550561795 423.67341544943815"
+            stroke-dashoffset="-393.36060182584265"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#e34c26" stroke-width="30"
+            stroke-dasharray="9.574789747191009 430.24781025280896"
+            stroke-dashoffset="-409.50978637640446"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#ec915c" stroke-width="30"
+            stroke-dasharray="8.206962640449438 431.61563735955053"
+            stroke-dashoffset="-419.08457612359547"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#f1e05a" stroke-width="30"
+            stroke-dasharray="6.839135533707864 432.9834644662921"
+            stroke-dashoffset="-427.2915387640449"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#00ADD8" stroke-width="30"
+            stroke-dasharray="1.5884443820224716 438.2341556179775"
+            stroke-dashoffset="-434.13067429775276"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#663399" stroke-width="30"
+            stroke-dasharray="1.5443209269662919 438.2782790730337"
+            stroke-dashoffset="-435.71911867977525"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#ffc200" stroke-width="30"
+            stroke-dasharray="1.323703651685393 438.4988963483146"
+            stroke-dashoffset="-437.26343960674154"
+            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
+            stroke="#3178c6" stroke-width="30"
+            stroke-dasharray="1.2354567415730335 438.5871432584269"
+            stroke-dashoffset="-438.5871432584269"
+            transform="rotate(-90, 100, 100)"/>
+  </g>
+  
+        <g transform="translate(220, 30)">
+            <circle cx="6" cy="6" r="6" fill="#dd1100"/>
+            <text x="18" y="10" class="lang-name">Mathematica</text>
+            <text x="200" y="10" class="lang-pct">80.6%</text>
+        </g>
+        <g transform="translate(220, 55)">
+            <circle cx="6" cy="6" r="6" fill="#3572A5"/>
+            <text x="18" y="10" class="lang-name">Python</text>
+            <text x="200" y="10" class="lang-pct">8.5%</text>
+        </g>
+        <g transform="translate(220, 80)">
+            <circle cx="6" cy="6" r="6" fill="#DA5B0B"/>
+            <text x="18" y="10" class="lang-name">Jupyter Notebook</text>
+            <text x="200" y="10" class="lang-pct">3.7%</text>
+        </g>
+        <g transform="translate(220, 105)">
+            <circle cx="6" cy="6" r="6" fill="#e34c26"/>
+            <text x="18" y="10" class="lang-name">HTML</text>
+            <text x="200" y="10" class="lang-pct">2.2%</text>
+        </g>
+        <g transform="translate(220, 130)">
+            <circle cx="6" cy="6" r="6" fill="#ec915c"/>
+            <text x="18" y="10" class="lang-name">Zig</text>
+            <text x="200" y="10" class="lang-pct">1.9%</text>
+        </g>
+        <g transform="translate(220, 155)">
+            <circle cx="6" cy="6" r="6" fill="#f1e05a"/>
+            <text x="18" y="10" class="lang-name">JavaScript</text>
+            <text x="200" y="10" class="lang-pct">1.6%</text>
+        </g>
+        <g transform="translate(220, 180)">
+            <circle cx="6" cy="6" r="6" fill="#00ADD8"/>
+            <text x="18" y="10" class="lang-name">Go</text>
+            <text x="200" y="10" class="lang-pct">0.4%</text>
+        </g>
+        <g transform="translate(220, 205)">
+            <circle cx="6" cy="6" r="6" fill="#663399"/>
+            <text x="18" y="10" class="lang-name">CSS</text>
+            <text x="200" y="10" class="lang-pct">0.3%</text>
+        </g>
+        <g transform="translate(220, 230)">
+            <circle cx="6" cy="6" r="6" fill="#ffc200"/>
+            <text x="18" y="10" class="lang-name">Nim</text>
+            <text x="200" y="10" class="lang-pct">0.3%</text>
+        </g>
+        <g transform="translate(220, 255)">
+            <circle cx="6" cy="6" r="6" fill="#3178c6"/>
+            <text x="18" y="10" class="lang-name">TypeScript</text>
+            <text x="200" y="10" class="lang-pct">0.3%</text>
+        </g>
+</svg>

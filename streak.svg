@@ -1,0 +1,32 @@
+<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
+    .stat { font: 700 28px 'Segoe UI', Ubuntu, Sans-Serif; fill: #38bdae; }
+    .label { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
+    .dates { font: 400 10px 'Segoe UI', Ubuntu, Sans-Serif; fill: #bf91f3; }
+  </style>
+  <rect x="0.5" y="0.5" rx="4.5" width="494" height="194" fill="#1a1b27" stroke="none"/>
+  
+  <!-- Total Contributions -->
+  <g transform="translate(50, 48)">
+    <text class="header" x="40" y="0" text-anchor="middle">Total Contributions</text>
+    <text class="stat" x="40" y="40" text-anchor="middle">2,544</text>
+    <text class="dates" x="40" y="58" text-anchor="middle">All Time</text>
+  </g>
+  
+  <!-- Current Streak -->
+  <g transform="translate(205, 48)">
+    <text class="header" x="40" y="0" text-anchor="middle">Current Streak</text>
+    <!-- Fire icon / ring -->
+    <circle cx="40" cy="50" r="35" fill="none" stroke="#70a5fd" stroke-width="4"/>
+    <text class="stat" x="40" y="58" text-anchor="middle">4</text>
+    <text class="dates" x="40" y="100" text-anchor="middle">Jan 12, 2026 - Jan 15, 2026</text>
+  </g>
+  
+  <!-- Longest Streak -->
+  <g transform="translate(365, 48)">
+    <text class="header" x="40" y="0" text-anchor="middle">Longest Streak</text>
+    <text class="stat" x="40" y="40" text-anchor="middle">27</text>
+    <text class="dates" x="40" y="58" text-anchor="middle">Dec 03, 2025 - Dec 29, 2025</text>
+  </g>
+</svg>

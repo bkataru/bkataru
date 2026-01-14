@@ -16,7 +16,7 @@
       <text class="stat">Total Stars Earned: 69</text>
     </g>
     <g class="stagger" style="animation-delay: 300ms" transform="translate(0, 42)">
-      <text class="stat">Total Commits (this year): 1,015</text>
+      <text class="stat">Total Commits (this year): 1,016</text>
     </g>
     <g class="stagger" style="animation-delay: 450ms" transform="translate(0, 63)">
       <text class="stat">Total PRs: 36</text>

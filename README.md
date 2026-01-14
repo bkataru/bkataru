@@ -74,7 +74,7 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
   <img src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true" alt="Top Languages" />
   <img src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true" alt="GitHub Stats" />
   <img src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true" alt="GitHub Streak" />
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=bkataru&bg_color=000000&color=ffffff&line=ffffff&point=0a91b1&area=true&hide_border=true" />
+  <img src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true" alt="Activity Graph" />
 </div>
 
 ---

@@ -1,0 +1,29 @@
+<svg width="900" height="300" viewBox="0 0 900 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: 600 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #ffffff; }
+    .axis-label { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #ffffff; opacity: 0.7; }
+  </style>
+  <rect x="0" y="0" width="900" height="300" fill="#000000" rx="4.5" />
+  
+  <!-- Title -->
+  <text class="title" x="450" y="25" text-anchor="middle">bkataru's Contribution Graph</text>
+  
+  <!-- Y-axis labels and grid -->
+  <text x="50" y="244.0" class="axis-label" text-anchor="end">0</text><line x1="60" y1="240.0" x2="870" y2="240.0" stroke="#ffffff" stroke-opacity="0.1"/><text x="50" y="204.0" class="axis-label" text-anchor="end">16</text><line x1="60" y1="200.0" x2="870" y2="200.0" stroke="#ffffff" stroke-opacity="0.1"/><text x="50" y="164.0" class="axis-label" text-anchor="end">33</text><line x1="60" y1="160.0" x2="870" y2="160.0" stroke="#ffffff" stroke-opacity="0.1"/><text x="50" y="124.0" class="axis-label" text-anchor="end">49</text><line x1="60" y1="120.0" x2="870" y2="120.0" stroke="#ffffff" stroke-opacity="0.1"/><text x="50" y="84.0" class="axis-label" text-anchor="end">66</text><line x1="60" y1="80.0" x2="870" y2="80.0" stroke="#ffffff" stroke-opacity="0.1"/><text x="50" y="44.0" class="axis-label" text-anchor="end">83</text><line x1="60" y1="40.0" x2="870" y2="40.0" stroke="#ffffff" stroke-opacity="0.1"/>
+  
+  <!-- X-axis labels -->
+  <text x="60.0" y="280" class="axis-label" text-anchor="middle">Dec 16</text><text x="168.0" y="280" class="axis-label" text-anchor="middle">Dec 20</text><text x="276.0" y="280" class="axis-label" text-anchor="middle">Dec 24</text><text x="384.0" y="280" class="axis-label" text-anchor="middle">Dec 28</text><text x="492.0" y="280" class="axis-label" text-anchor="middle">Jan 01</text><text x="600.0" y="280" class="axis-label" text-anchor="middle">Jan 05</text><text x="708.0" y="280" class="axis-label" text-anchor="middle">Jan 09</text><text x="816.0" y="280" class="axis-label" text-anchor="middle">Jan 13</text>
+  
+  <!-- Area fill -->
+  <path d="M 60.0 191.8 L 87.0 196.6 L 114.0 153.3 L 141.0 218.3 L 168.0 179.8 L 195.0 189.4 L 222.0 213.5 L 249.0 232.8 L 276.0 228.0 L 303.0 223.1 L 330.0 230.4 L 357.0 235.2 L 384.0 225.5 L 411.0 235.2 L 438.0 240.0 L 465.0 237.6 L 492.0 240.0 L 519.0 240.0 L 546.0 199.0 L 573.0 232.8 L 600.0 206.3 L 627.0 223.1 L 654.0 172.5 L 681.0 215.9 L 708.0 232.8 L 735.0 240.0 L 762.0 240.0 L 789.0 230.4 L 816.0 112.3 L 843.0 40.0 L 870.0 199.0 L 870.0 240 L 60.0 240 Z" fill="#ffffff" fill-opacity="0.1"/>
+  
+  <!-- Line -->
+  <path d="M 60.0 191.8 L 87.0 196.6 L 114.0 153.3 L 141.0 218.3 L 168.0 179.8 L 195.0 189.4 L 222.0 213.5 L 249.0 232.8 L 276.0 228.0 L 303.0 223.1 L 330.0 230.4 L 357.0 235.2 L 384.0 225.5 L 411.0 235.2 L 438.0 240.0 L 465.0 237.6 L 492.0 240.0 L 519.0 240.0 L 546.0 199.0 L 573.0 232.8 L 600.0 206.3 L 627.0 223.1 L 654.0 172.5 L 681.0 215.9 L 708.0 232.8 L 735.0 240.0 L 762.0 240.0 L 789.0 230.4 L 816.0 112.3 L 843.0 40.0 L 870.0 199.0" stroke="#ffffff" stroke-width="2" fill="none"/>
+  
+  <!-- Points -->
+  <circle cx="60.0" cy="191.8" r="3" fill="#0a91b1"/><circle cx="87.0" cy="196.6" r="3" fill="#0a91b1"/><circle cx="114.0" cy="153.3" r="3" fill="#0a91b1"/><circle cx="141.0" cy="218.3" r="3" fill="#0a91b1"/><circle cx="168.0" cy="179.8" r="3" fill="#0a91b1"/><circle cx="195.0" cy="189.4" r="3" fill="#0a91b1"/><circle cx="222.0" cy="213.5" r="3" fill="#0a91b1"/><circle cx="249.0" cy="232.8" r="3" fill="#0a91b1"/><circle cx="276.0" cy="228.0" r="3" fill="#0a91b1"/><circle cx="303.0" cy="223.1" r="3" fill="#0a91b1"/><circle cx="330.0" cy="230.4" r="3" fill="#0a91b1"/><circle cx="357.0" cy="235.2" r="3" fill="#0a91b1"/><circle cx="384.0" cy="225.5" r="3" fill="#0a91b1"/><circle cx="411.0" cy="235.2" r="3" fill="#0a91b1"/><circle cx="438.0" cy="240.0" r="3" fill="#0a91b1"/><circle cx="465.0" cy="237.6" r="3" fill="#0a91b1"/><circle cx="492.0" cy="240.0" r="3" fill="#0a91b1"/><circle cx="519.0" cy="240.0" r="3" fill="#0a91b1"/><circle cx="546.0" cy="199.0" r="3" fill="#0a91b1"/><circle cx="573.0" cy="232.8" r="3" fill="#0a91b1"/><circle cx="600.0" cy="206.3" r="3" fill="#0a91b1"/><circle cx="627.0" cy="223.1" r="3" fill="#0a91b1"/><circle cx="654.0" cy="172.5" r="3" fill="#0a91b1"/><circle cx="681.0" cy="215.9" r="3" fill="#0a91b1"/><circle cx="708.0" cy="232.8" r="3" fill="#0a91b1"/><circle cx="735.0" cy="240.0" r="3" fill="#0a91b1"/><circle cx="762.0" cy="240.0" r="3" fill="#0a91b1"/><circle cx="789.0" cy="230.4" r="3" fill="#0a91b1"/><circle cx="816.0" cy="112.3" r="3" fill="#0a91b1"/><circle cx="843.0" cy="40.0" r="3" fill="#0a91b1"/><circle cx="870.0" cy="199.0" r="3" fill="#0a91b1"/>
+  
+  <!-- Axis lines -->
+  <line x1="60" y1="40" x2="60" y2="240" stroke="#ffffff" stroke-opacity="0.3"/>
+  <line x1="60" y1="240" x2="870" y2="240" stroke="#ffffff" stroke-opacity="0.3"/>
+</svg>

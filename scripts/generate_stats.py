@@ -16,6 +16,7 @@ Usage:
 import argparse
 import json
 import os
+import subprocess
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -30,7 +31,7 @@ except ImportError:
 
 
 GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
-OUTPUT_DIR = Path(__file__).parent / "output"
+OUTPUT_DIR = Path(__file__).parent.parent  # Output to repo root
 
 
 def graphql_query(token: str, query: str, variables: dict | None = None) -> dict:
@@ -149,6 +150,41 @@ def fetch_year_contributions(token: str, username: str, year: int) -> list[dict]
     for week in data["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
         days.extend(week["contributionDays"])
     return days
+
+
+def fetch_recent_contributions(token: str, username: str, days: int = 31) -> list[dict]:
+    """Fetch contribution data for the last N days."""
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=days)
+    
+    start = start_date.strftime("%Y-%m-%dT00:00:00Z")
+    end = end_date.strftime("%Y-%m-%dT23:59:59Z")
+    
+    query = """
+    query($login: String!, $from: DateTime!, $to: DateTime!) {
+      user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+          contributionCalendar {
+            weeks {
+              contributionDays {
+                contributionCount
+                date
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+    data = graphql_query(token, query, {"login": username, "from": start, "to": end})
+    
+    contribution_days = []
+    for week in data["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
+        contribution_days.extend(week["contributionDays"])
+    
+    # Sort by date and return only the last N days
+    sorted_days = sorted(contribution_days, key=lambda d: d["date"])
+    return sorted_days[-days:]
 
 
 def calculate_streaks(contribution_days: list[dict]) -> dict[str, Any]:
@@ -519,19 +555,158 @@ def generate_streak_svg(streaks: dict, username: str, theme: str = "tokyonight")
     return svg
 
 
+def generate_activity_graph_svg(
+    contribution_days: list[dict],
+    username: str,
+    bg_color: str = "#000000",
+    line_color: str = "#ffffff",
+    point_color: str = "#0a91b1",
+    text_color: str = "#ffffff",
+    area: bool = True,
+    hide_border: bool = True,
+) -> str:
+    """Generate the contribution activity graph SVG."""
+    # Sort by date
+    sorted_days = sorted(contribution_days, key=lambda d: d["date"])
+    
+    if not sorted_days:
+        return '<svg width="900" height="300"></svg>'
+    
+    # Graph dimensions
+    width = 900
+    height = 300
+    padding_left = 60
+    padding_right = 30
+    padding_top = 40
+    padding_bottom = 60
+    
+    graph_width = width - padding_left - padding_right
+    graph_height = height - padding_top - padding_bottom
+    
+    # Get contribution data
+    dates = [d["date"] for d in sorted_days]
+    counts = [d["contributionCount"] for d in sorted_days]
+    max_count = max(counts) if counts else 1
+    
+    # Calculate points
+    num_points = len(counts)
+    x_step = graph_width / (num_points - 1) if num_points > 1 else graph_width
+    
+    points = []
+    for i, count in enumerate(counts):
+        x = padding_left + i * x_step
+        y = padding_top + graph_height - (count / max_count * graph_height) if max_count > 0 else padding_top + graph_height
+        points.append((x, y))
+    
+    # Generate path for line
+    if points:
+        line_path = f"M {points[0][0]:.1f} {points[0][1]:.1f}"
+        for x, y in points[1:]:
+            line_path += f" L {x:.1f} {y:.1f}"
+        
+        # Generate area path (closed)
+        area_path = line_path
+        area_path += f" L {points[-1][0]:.1f} {padding_top + graph_height}"
+        area_path += f" L {points[0][0]:.1f} {padding_top + graph_height} Z"
+    else:
+        line_path = ""
+        area_path = ""
+    
+    # Generate Y-axis labels
+    y_labels = []
+    num_y_labels = 5
+    for i in range(num_y_labels + 1):
+        value = int(max_count * i / num_y_labels)
+        y = padding_top + graph_height - (i / num_y_labels * graph_height)
+        y_labels.append(f'<text x="{padding_left - 10}" y="{y + 4}" class="axis-label" text-anchor="end">{value}</text>')
+        # Grid line
+        y_labels.append(f'<line x1="{padding_left}" y1="{y}" x2="{width - padding_right}" y2="{y}" stroke="{text_color}" stroke-opacity="0.1"/>')
+    
+    # Generate X-axis labels (show ~7 dates)
+    x_labels = []
+    label_interval = max(1, len(dates) // 7)
+    for i in range(0, len(dates), label_interval):
+        x = padding_left + i * x_step
+        date_obj = datetime.strptime(dates[i], "%Y-%m-%d")
+        label = date_obj.strftime("%b %d")
+        x_labels.append(f'<text x="{x}" y="{height - 20}" class="axis-label" text-anchor="middle">{label}</text>')
+    
+    # Generate point markers
+    point_markers = []
+    for x, y in points:
+        point_markers.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="{point_color}"/>')
+    
+    border_style = "" if hide_border else f'stroke="{text_color}" stroke-width="1"'
+    
+    svg = f'''<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title {{ font: 600 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
+    .axis-label {{ font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; opacity: 0.7; }}
+  </style>
+  <rect x="0" y="0" width="{width}" height="{height}" fill="{bg_color}" rx="4.5" {border_style}/>
+  
+  <!-- Title -->
+  <text class="title" x="{width // 2}" y="25" text-anchor="middle">{username}'s Contribution Graph</text>
+  
+  <!-- Y-axis labels and grid -->
+  {"".join(y_labels)}
+  
+  <!-- X-axis labels -->
+  {"".join(x_labels)}
+  
+  <!-- Area fill -->
+  {f'<path d="{area_path}" fill="{line_color}" fill-opacity="0.1"/>' if area and area_path else ''}
+  
+  <!-- Line -->
+  <path d="{line_path}" stroke="{line_color}" stroke-width="2" fill="none"/>
+  
+  <!-- Points -->
+  {"".join(point_markers)}
+  
+  <!-- Axis lines -->
+  <line x1="{padding_left}" y1="{padding_top}" x2="{padding_left}" y2="{padding_top + graph_height}" stroke="{text_color}" stroke-opacity="0.3"/>
+  <line x1="{padding_left}" y1="{padding_top + graph_height}" x2="{width - padding_right}" y2="{padding_top + graph_height}" stroke="{text_color}" stroke-opacity="0.3"/>
+</svg>'''
+    return svg
+
+
+def get_token_from_gh_cli() -> str | None:
+    """Try to get GitHub token from gh CLI."""
+    try:
+        result = subprocess.run(
+            ["gh", "auth", "token"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return result.stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate GitHub stats SVGs locally")
     parser.add_argument("--user", "-u", required=True, help="GitHub username")
-    parser.add_argument("--token", "-t", help="GitHub Personal Access Token (or set GITHUB_TOKEN env)")
+    parser.add_argument("--token", "-t", help="GitHub Personal Access Token (or set GITHUB_TOKEN env, or use gh CLI)")
     parser.add_argument("--theme", default="merko", help="Theme for stats cards (default: merko)")
     parser.add_argument("--streak-theme", default="tokyonight", help="Theme for streak card (default: tokyonight)")
     parser.add_argument("--output", "-o", default=str(OUTPUT_DIR), help="Output directory")
+    parser.add_argument("--graph-days", type=int, default=31, help="Number of days for activity graph (default: 31)")
     args = parser.parse_args()
     
+    # Try to get token from multiple sources
     token = args.token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
     if not token:
-        print("Error: GitHub token required. Use --token or set GITHUB_TOKEN environment variable.")
-        print("Create a token at: https://github.com/settings/tokens/new")
+        print("  - Trying to get token from gh CLI...")
+        token = get_token_from_gh_cli()
+    
+    if not token:
+        print("Error: GitHub token required.")
+        print("Options:")
+        print("  1. Use --token argument")
+        print("  2. Set GITHUB_TOKEN environment variable")
+        print("  3. Login with gh CLI: gh auth login")
+        print("\nCreate a token at: https://github.com/settings/tokens/new")
         print("Required scopes: read:user")
         sys.exit(1)
     
@@ -552,6 +727,10 @@ def main():
         print(f"    - Year {year}...")
         days = fetch_year_contributions(token, args.user, year)
         all_days.extend(days)
+    
+    # Fetch recent contributions for activity graph
+    print(f"  - Fetching recent {args.graph_days}-day contribution data...")
+    recent_days = fetch_recent_contributions(token, args.user, args.graph_days)
     
     # Calculate streaks
     print("  - Calculating streaks...")
@@ -579,6 +758,21 @@ def main():
     streak_file.write_text(streak_svg, encoding="utf-8")
     print(f"  - Saved: {streak_file}")
     
+    # Generate activity graph
+    activity_svg = generate_activity_graph_svg(
+        recent_days,
+        args.user,
+        bg_color="#000000",
+        line_color="#ffffff",
+        point_color="#0a91b1",
+        text_color="#ffffff",
+        area=True,
+        hide_border=True,
+    )
+    activity_file = output_dir / "activity-graph.svg"
+    activity_file.write_text(activity_svg, encoding="utf-8")
+    print(f"  - Saved: {activity_file}")
+    
     # Save raw data as JSON for debugging
     data_file = output_dir / "data.json"
     data_file.write_text(json.dumps({
@@ -591,6 +785,7 @@ def main():
         },
         "streaks": streaks,
         "languages": languages[:20],
+        "recent_contributions": [{"date": d["date"], "count": d["contributionCount"]} for d in recent_days],
     }, indent=2), encoding="utf-8")
     print(f"  - Saved: {data_file}")
     

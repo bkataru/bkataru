@@ -186,8 +186,8 @@
       </g>
 
 
-      <g transform="translate(150, 3)">
-        <svg width="250" height="250">
+      <g transform="translate(170, 40)">
+        <svg width="140" height="140" viewBox="-10 -10 140 140">
 
        <g class="stagger" style="animation-delay: 600ms">
         <path

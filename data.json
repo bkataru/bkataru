@@ -1,10 +1,19 @@
 {
   "username": "bkataru",
-  "generated_at": "2026-01-14T22:27:52.267Z",
+  "generated_at": "2026-01-14T23:11:12.656Z",
   "widgets": [
     "stats.svg",
     "top-langs.svg",
     "activity-graph.svg",
     "streak.svg"
-  ]
+  ],
+  "layout": {
+    "grid_card_width": 450,
+    "streak_card_width": 930,
+    "graph_width": 930
+  },
+  "fallback": {
+    "enabled": true,
+    "token_present": false
+  }
 }

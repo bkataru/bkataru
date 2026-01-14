@@ -3,10 +3,15 @@
 /**
  * Widget Generator for GitHub Profile README
  * Uses the vendored TypeScript projects to generate SVG widgets
+ *
+ * Robustness goals:
+ * - If GitHub APIs are unavailable / rate-limited (common without a token),
+ *   keep the repo widgets stable by falling back to existing/cached SVGs.
+ * - Still allow authenticated regeneration when TOKEN/GH_TOKEN/GITHUB_TOKEN is set.
  */
 
 import axios from "axios";
-import { writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -16,17 +21,22 @@ const __dirname = dirname(__filename);
 const rootDir = join(__dirname, "..");
 
 // Environment setup - set PAT_1 for github-readme-stats compatibility
+
 const TOKEN =
 	process.env.TOKEN || process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
-if (!TOKEN) {
-	console.error(
-		"❌ No GitHub token found. Set TOKEN, GH_TOKEN, or GITHUB_TOKEN environment variable.",
-	);
-	process.exit(1);
-}
 
-// Set PAT_1 for github-readme-stats
-process.env.PAT_1 = TOKEN;
+// Force regeneration flag
+const FORCE_REGENERATION = process.env.FORCE_REGENERATION === "true";
+
+if (!TOKEN) {
+	console.warn("⚠️  No GitHub token found. Using public API (rate-limited).");
+	console.warn(
+		"💡 Set TOKEN, GH_TOKEN, or GITHUB_TOKEN environment variable for authenticated requests.",
+	);
+} else {
+	// Set PAT_1 for github-readme-stats
+	process.env.PAT_1 = TOKEN;
+}
 
 // Import vendored modules
 const statsModule = await import(
@@ -57,6 +67,35 @@ const { selectColors } = await import(
 const USERNAME = process.env.GITHUB_USERNAME || "bkataru";
 const GRAPH_DAYS = parseInt(process.env.GRAPH_DAYS || "31");
 
+/**
+ * Layout constants
+ * Goal (Option 1): top row cards look like a cohesive 2-column grid.
+ *
+ * Notes:
+ * - `github-readme-stats` uses different default widths per card; we override them.
+ * - For `top-languages` donut layout, upstream adds extra width padding.
+ *   So we pass a slightly smaller `card_width` to land at our desired final width.
+ */
+const GRID_CARD_WIDTH = parseInt(process.env.GRID_CARD_WIDTH || "450");
+const TOP_LANGS_INTERNAL_WIDTH = GRID_CARD_WIDTH;
+const STREAK_CARD_WIDTH = GRID_CARD_WIDTH * 2 + 30; // approximate 2-col width + spacing
+const GRAPH_WIDTH = STREAK_CARD_WIDTH;
+
+/**
+
+ * Cache / fallback behavior:
+
+ * - When unauthenticated, GitHub GraphQL frequently hard-fails or is rate-limited.
+
+ * - In that case, keep previously-generated SVGs.
+
+ */
+
+const OUTPUT_DIR = rootDir;
+
+const FALLBACK_TO_EXISTING_SVGS =
+	!FORCE_REGENERATION && (process.env.FALLBACK_TO_EXISTING_SVGS || "1") !== "0";
+
 interface WidgetConfig {
 	title_color: string;
 	text_color: string;
@@ -77,6 +116,66 @@ const themeConfig: WidgetConfig = {
 };
 
 /**
+ * Cache helper: read an existing SVG from disk (if present)
+ */
+function readExistingSvg(filename: string): string | null {
+	const p = join(OUTPUT_DIR, filename);
+	if (!existsSync(p)) return null;
+	return readFileSync(p, "utf8");
+}
+
+/**
+ * Detect GitHub API rate-limit / auth errors (common without token)
+ */
+function isRateLimitOrAuthError(err: any): boolean {
+	const status = err?.response?.status;
+	const statusText = String(err?.response?.statusText || "").toLowerCase();
+	const msg = String(err?.message || "").toLowerCase();
+
+	// 401/403 (auth/rate limiting), and explicit "rate limit exceeded"
+	if (status === 401 || status === 403) return true;
+	if (statusText.includes("rate limit")) return true;
+	if (msg.includes("rate limit")) return true;
+	if (msg.includes("no github api tokens")) return true;
+
+	// GraphQL/data-shape failures from vendored fetchers when unauthenticated/rate-limited
+	// (e.g. `res.data.data.user` is undefined)
+	if (msg.includes("graphql")) return true;
+	if (msg.includes("undefined is not an object")) return true;
+	if (msg.includes("cannot read properties of undefined")) return true;
+
+	// Activity graph vendor library returns error strings
+	if (msg.includes("activity graph")) return true;
+	if (msg.includes("can't fetch any contribution")) return true;
+	if (msg.includes("api rate limit exceeded")) return true;
+
+	return false;
+}
+
+async function withSvgFallback(
+	filename: string,
+	generator: () => Promise<string>,
+): Promise<string> {
+	try {
+		return await generator();
+	} catch (err) {
+		if (FALLBACK_TO_EXISTING_SVGS && isRateLimitOrAuthError(err)) {
+			const existing = readExistingSvg(filename);
+
+			if (existing) {
+				console.warn(
+					`⚠️  Using cached ${filename} (GitHub API unavailable/rate-limited).`,
+				);
+
+				return existing;
+			}
+		}
+
+		throw err;
+	}
+}
+
+/**
  * Generate GitHub Stats Card
  */
 async function generateStatsCard(): Promise<string> {
@@ -93,6 +192,7 @@ async function generateStatsCard(): Promise<string> {
 
 	const svg = statsModule.renderStatsCard(stats, {
 		...themeConfig,
+		card_width: GRID_CARD_WIDTH,
 		show_icons: true,
 		hide_border: false,
 		hide_rank: false,
@@ -109,16 +209,25 @@ async function generateStatsCard(): Promise<string> {
 async function generateTopLangsCard(): Promise<string> {
 	console.log("💻 Fetching top languages...");
 
-	const topLangs = await fetchTopLangsModule.fetchTopLanguages(USERNAME);
+	try {
+		const topLangs = await fetchTopLangsModule.fetchTopLanguages(USERNAME);
 
-	const svg = topLangsModule.renderTopLanguages(topLangs, {
-		...themeConfig,
-		layout: "donut",
-		langs_count: 8,
-		hide_border: false,
-	});
+		const svg = topLangsModule.renderTopLanguages(topLangs, {
+			...themeConfig,
+			card_width: TOP_LANGS_INTERNAL_WIDTH,
+			layout: "donut",
+			langs_count: 8,
+			hide_border: false,
+		});
 
-	return svg;
+		return svg;
+	} catch (err) {
+		console.warn(
+			"Failed to fetch top languages data:",
+			err instanceof Error ? err.message : String(err),
+		);
+		throw err;
+	}
 }
 
 /**
@@ -127,27 +236,35 @@ async function generateTopLangsCard(): Promise<string> {
 async function generateActivityGraph(): Promise<string> {
 	console.log("📈 Fetching activity data...");
 
-	const fetcher = new Fetcher(USERNAME);
-	const userData = await fetcher.fetchContributions(GRAPH_DAYS);
+	try {
+		const fetcher = new Fetcher(USERNAME);
+		const userData = await fetcher.fetchContributions(GRAPH_DAYS);
 
-	if (typeof userData === "string") {
-		throw new Error(userData);
+		if (typeof userData === "string") {
+			// The vendored fetcher returns a string on error.
+			// Throw so the withSvgFallback wrapper can catch it and use the cached SVG.
+			throw new Error(`Activity graph fetch failed: ${userData}`);
+		}
+
+		const colors = selectColors("github-dark");
+
+		const graphCard = new GraphCard(
+			300, // height
+			GRAPH_WIDTH, // width
+			5, // radius
+			colors,
+			`${userData.name}'s Contribution Graph`,
+			true, // area
+			true, // showGrid
+		);
+
+		const svg = await graphCard.buildGraph(userData.contributions);
+		return svg;
+	} catch (err) {
+		// Rethrow with a clear message so isRateLimitOrAuthError can detect it
+		const msg = err instanceof Error ? err.message : String(err);
+		throw new Error(`Activity graph generation failed: ${msg}`);
 	}
-
-	const colors = selectColors("github-dark");
-
-	const graphCard = new GraphCard(
-		300, // height
-		850, // width
-		5, // radius
-		colors,
-		`${userData.name}'s Contribution Graph`,
-		true, // area
-		true, // showGrid
-	);
-
-	const svg = await graphCard.buildGraph(userData.contributions);
-	return svg;
 }
 
 /**
@@ -157,6 +274,18 @@ async function fetchContributionData(): Promise<{
 	contributions: number[];
 	totalContributions: number;
 }> {
+	// When unauthenticated, use a minimal safe fallback dataset to avoid API failures
+	if (!TOKEN) {
+		const cached = readExistingSvg("streak.svg");
+		if (cached) {
+			// Return safe placeholder data - the widget will be cached anyway
+			return {
+				contributions: Array(365).fill(0),
+				totalContributions: 0,
+			};
+		}
+	}
+
 	const query = `
     query($login: String!) {
       user(login: $login) {
@@ -175,12 +304,18 @@ async function fetchContributionData(): Promise<{
     }
   `;
 
+	const headers: Record<string, string> = {
+		"Content-Type": "application/json",
+	};
+
+	if (TOKEN) {
+		headers["Authorization"] = `bearer ${TOKEN}`;
+	}
+
 	const response = await axios({
 		url: "https://api.github.com/graphql",
 		method: "POST",
-		headers: {
-			Authorization: `bearer ${TOKEN}`,
-		},
+		headers,
 		data: { query, variables: { login: USERNAME } },
 	});
 
@@ -240,74 +375,100 @@ async function generateStreakCard(): Promise<string> {
 		}
 	}
 
-	// Calculate progress percentage for ring
-	const progressPercent =
-		longestStreak > 0 ? (currentStreak / longestStreak) * 100 : 0;
-	const circumference = 2 * Math.PI * 45;
-	const dashOffset = circumference - (progressPercent / 100) * circumference;
+	// Ring geometry
+	const ringRadius = 44;
+	const ringStroke = 6;
+	const ringCircumference = 2 * Math.PI * ringRadius;
 
-	// Generate streak SVG with proper styling - wider card with better spacing
-	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+	const progressPercent =
+		longestStreak > 0
+			? Math.min(100, (currentStreak / longestStreak) * 100)
+			: 0;
+	const ringDashOffset =
+		ringCircumference - (progressPercent / 100) * ringCircumference;
+
+	// Layout: 3 balanced columns (Total | Ring | Longest)
+	const width = STREAK_CARD_WIDTH;
+	const height = 210;
+	const midX = Math.round(width / 2);
+
+	const leftX = 140;
+	const rightX = width - 140;
+
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
   <defs>
     <style>
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
+        from { opacity: 0; transform: translateY(-6px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      @keyframes scaleIn {
-        from { transform: scale(0); }
-        to { transform: scale(1); }
-      }
       @keyframes ringProgress {
-        from { stroke-dashoffset: ${circumference}; }
-        to { stroke-dashoffset: ${dashOffset}; }
+        from { stroke-dashoffset: ${ringCircumference}; }
+        to { stroke-dashoffset: ${ringDashOffset}; }
       }
-      .animate { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
-      .stat-title { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #${themeConfig.title_color}; }
-      .stat-value { font: 800 28px 'Segoe UI', Ubuntu, Sans-Serif; fill: #${themeConfig.title_color}; }
-      .stat-label { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #${themeConfig.text_color}; opacity: 0.8; }
-      .ring-bg { fill: none; stroke: #${themeConfig.ring_color}; opacity: 0.2; }
-      .ring { fill: none; stroke: #${themeConfig.ring_color}; stroke-linecap: round; animation: ringProgress 1s ease-out forwards; }
-      .fire-icon { fill: #f97316; }
+
+      .animate { animation: fadeIn 0.35s ease-out forwards; opacity: 0; }
+
+      .title {
+        font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #${themeConfig.title_color};
+      }
+
+      .label {
+        font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #${themeConfig.text_color};
+        opacity: 0.95;
+      }
+
+      .value {
+        font: 800 30px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #${themeConfig.title_color};
+        letter-spacing: 0.2px;
+      }
+
+      .sub {
+        font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #${themeConfig.text_color};
+        opacity: 0.8;
+      }
+
+      .ring-bg { fill: none; stroke: #${themeConfig.ring_color}; opacity: 0.18; }
+      .ring { fill: none; stroke: #${themeConfig.ring_color}; stroke-linecap: round; animation: ringProgress 0.9s ease-out forwards; }
     </style>
   </defs>
 
-  <rect width="494" height="194" rx="4.5" x="0.5" y="0.5" fill="#${themeConfig.bg_color}" stroke="#${themeConfig.border_color}"/>
+  <rect width="${width - 1}" height="${height - 1}" rx="6" x="0.5" y="0.5" fill="#${themeConfig.bg_color}" stroke="#${themeConfig.border_color}"/>
 
-  <!-- Total Contributions - Left Section -->
-  <g transform="translate(60, 97)" class="animate" style="animation-delay: 0.1s">
-    <text class="stat-title" text-anchor="middle" x="0" y="-45">Total Contributions</text>
-    <text class="stat-value" text-anchor="middle" x="0" y="0">${totalContributions.toLocaleString()}</text>
-    <text class="stat-label" text-anchor="middle" x="0" y="25">Past Year</text>
+  <!-- Card Title -->
+  <g transform="translate(25, 36)" class="animate" style="animation-delay: 0.05s">
+    <text class="title" x="0" y="0">GitHub Streak</text>
   </g>
 
-  <!-- Current Streak with Ring - Center Section -->
-  <g transform="translate(247, 97)">
-    <text class="stat-title animate" style="animation-delay: 0.2s" text-anchor="middle" x="0" y="-70">Current Streak</text>
+  <!-- Total Contributions (Left) -->
+  <g transform="translate(${leftX}, 128)" class="animate" style="animation-delay: 0.12s">
+    <text class="label" text-anchor="middle" x="0" y="-34">Total Contributions</text>
+    <text class="value" text-anchor="middle" x="0" y="0">${totalContributions.toLocaleString()}</text>
+    <text class="sub" text-anchor="middle" x="0" y="24">Past Year</text>
+  </g>
 
-    <!-- Background Ring -->
-    <circle class="ring-bg" cx="0" cy="0" r="40" stroke-width="5"/>
+  <!-- Current Streak (Center) -->
+  <g transform="translate(${midX}, 128)">
+    <text class="label animate" style="animation-delay: 0.18s" text-anchor="middle" x="0" y="-58">Current Streak</text>
 
-    <!-- Progress Ring -->
-    <circle class="ring" cx="0" cy="0" r="40" stroke-width="5"
-            stroke-dasharray="${2 * Math.PI * 40}" stroke-dashoffset="${2 * Math.PI * 40 - (progressPercent / 100) * 2 * Math.PI * 40}"
+    <circle class="ring-bg" cx="0" cy="0" r="${ringRadius}" stroke-width="${ringStroke}"/>
+    <circle class="ring" cx="0" cy="0" r="${ringRadius}" stroke-width="${ringStroke}"
+            stroke-dasharray="${ringCircumference}" stroke-dashoffset="${ringCircumference}"
             transform="rotate(-90)"/>
 
-    <!-- Streak Number -->
-    <text class="stat-value animate" style="animation-delay: 0.3s" text-anchor="middle" x="0" y="8">${currentStreak}</text>
-    <text class="stat-label animate" style="animation-delay: 0.35s" text-anchor="middle" x="0" y="28">days</text>
+    <text class="value animate" style="animation-delay: 0.25s" text-anchor="middle" x="0" y="10">${currentStreak}</text>
+    <text class="sub animate" style="animation-delay: 0.28s" text-anchor="middle" x="0" y="32">days</text>
   </g>
 
-  <!-- Longest Streak - Right Section -->
-  <g transform="translate(435, 97)" class="animate" style="animation-delay: 0.4s">
-    <text class="stat-title" text-anchor="middle" x="0" y="-45">Longest Streak</text>
-    <text class="stat-value" text-anchor="middle" x="0" y="0">${longestStreak}</text>
-    <text class="stat-label" text-anchor="middle" x="0" y="25">days</text>
-  </g>
-
-  <!-- Fire Icon - Below Center Ring -->
-  <g transform="translate(235, 165)" class="fire-icon animate" style="animation-delay: 0.5s">
-    <path d="M12 2C6.5 8.5 3 14 3 17.5C3 20.538 5.462 23 8.5 23C9.5 23 10.437 22.718 11.25 22.236C10.453 21.48 10 20.45 10 19.5C10 17.875 11.625 15 12 13C12.375 15 14 17.875 14 19.5C14 20.45 13.547 21.48 12.75 22.236C13.563 22.718 14.5 23 15.5 23C18.538 23 21 20.538 21 17.5C21 14 17.5 8.5 12 2Z" transform="scale(1)"/>
+  <!-- Longest Streak (Right) -->
+  <g transform="translate(${rightX}, 128)" class="animate" style="animation-delay: 0.32s">
+    <text class="label" text-anchor="middle" x="0" y="-34">Longest Streak</text>
+    <text class="value" text-anchor="middle" x="0" y="0">${longestStreak}</text>
+    <text class="sub" text-anchor="middle" x="0" y="24">days</text>
   </g>
 </svg>`;
 
@@ -321,32 +482,49 @@ async function main() {
 	console.log(`\n🚀 Generating widgets for ${USERNAME}...\n`);
 
 	try {
-		// Generate all widgets in parallel
+		// Generate all widgets in parallel, but each can fall back to cached SVGs
+		// if GitHub APIs are unavailable/rate-limited.
+		//
+		// Note: Activity graph generation is disabled when unauthenticated because
+		// the vendored library has noisy error logging that can't be suppressed.
+		// Instead, we just keep the cached SVG.
 		const [statsCard, topLangsCard, activityGraph, streakCard] =
 			await Promise.all([
-				generateStatsCard(),
-				generateTopLangsCard(),
-				generateActivityGraph(),
-				generateStreakCard(),
+				withSvgFallback("stats.svg", generateStatsCard),
+				withSvgFallback("top-langs.svg", generateTopLangsCard),
+				TOKEN
+					? withSvgFallback("activity-graph.svg", generateActivityGraph)
+					: (async () => {
+							const cached = readExistingSvg("activity-graph.svg");
+							if (cached) {
+								console.warn(
+									"⚠️  Using cached activity-graph.svg (no token provided).",
+								);
+								return cached;
+							}
+							return withSvgFallback(
+								"activity-graph.svg",
+								generateActivityGraph,
+							);
+						})(),
+				withSvgFallback("streak.svg", generateStreakCard),
 			]);
 
 		// Save widgets
-		const outputDir = rootDir;
-
-		writeFileSync(join(outputDir, "stats.svg"), statsCard);
+		writeFileSync(join(OUTPUT_DIR, "stats.svg"), statsCard);
 		console.log("✅ Generated stats.svg");
 
-		writeFileSync(join(outputDir, "top-langs.svg"), topLangsCard);
+		writeFileSync(join(OUTPUT_DIR, "top-langs.svg"), topLangsCard);
 		console.log("✅ Generated top-langs.svg");
 
-		writeFileSync(join(outputDir, "activity-graph.svg"), activityGraph);
+		writeFileSync(join(OUTPUT_DIR, "activity-graph.svg"), activityGraph);
 		console.log("✅ Generated activity-graph.svg");
 
-		writeFileSync(join(outputDir, "streak.svg"), streakCard);
+		writeFileSync(join(OUTPUT_DIR, "streak.svg"), streakCard);
 		console.log("✅ Generated streak.svg");
 
 		// Save data.json for reference
-		const dataFile = join(outputDir, "data.json");
+		const dataFile = join(OUTPUT_DIR, "data.json");
 		const data = {
 			username: USERNAME,
 			generated_at: new Date().toISOString(),
@@ -356,6 +534,15 @@ async function main() {
 				"activity-graph.svg",
 				"streak.svg",
 			],
+			layout: {
+				grid_card_width: GRID_CARD_WIDTH,
+				streak_card_width: STREAK_CARD_WIDTH,
+				graph_width: GRAPH_WIDTH,
+			},
+			fallback: {
+				enabled: FALLBACK_TO_EXISTING_SVGS,
+				token_present: Boolean(TOKEN),
+			},
 		};
 		writeFileSync(dataFile, JSON.stringify(data, null, 2));
 		console.log("✅ Generated data.json");

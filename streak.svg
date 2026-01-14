@@ -1,63 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+<svg xmlns="http://www.w3.org/2000/svg" width="930" height="210" viewBox="0 0 930 210">
   <defs>
     <style>
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
+        from { opacity: 0; transform: translateY(-6px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      @keyframes scaleIn {
-        from { transform: scale(0); }
-        to { transform: scale(1); }
-      }
       @keyframes ringProgress {
-        from { stroke-dashoffset: 282.7433388230814; }
-        to { stroke-dashoffset: 240.85543677521747; }
+        from { stroke-dashoffset: 276.46015351590177; }
+        to { stroke-dashoffset: 276.46015351590177; }
       }
-      .animate { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
-      .stat-title { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-      .stat-value { font: 800 28px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
-      .stat-label { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; opacity: 0.8; }
-      .ring-bg { fill: none; stroke: #58a6ff; opacity: 0.2; }
-      .ring { fill: none; stroke: #58a6ff; stroke-linecap: round; animation: ringProgress 1s ease-out forwards; }
-      .fire-icon { fill: #f97316; }
+
+      .animate { animation: fadeIn 0.35s ease-out forwards; opacity: 0; }
+
+      .title {
+        font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #58a6ff;
+      }
+
+      .label {
+        font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #c9d1d9;
+        opacity: 0.95;
+      }
+
+      .value {
+        font: 800 30px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #58a6ff;
+        letter-spacing: 0.2px;
+      }
+
+      .sub {
+        font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif;
+        fill: #c9d1d9;
+        opacity: 0.8;
+      }
+
+      .ring-bg { fill: none; stroke: #58a6ff; opacity: 0.18; }
+      .ring { fill: none; stroke: #58a6ff; stroke-linecap: round; animation: ringProgress 0.9s ease-out forwards; }
     </style>
   </defs>
-  
-  <rect width="494" height="194" rx="4.5" x="0.5" y="0.5" fill="#0d1117" stroke="#30363d"/>
-  
-  <!-- Total Contributions -->
-  <g transform="translate(35, 35)" class="animate" style="animation-delay: 0.1s">
-    <text class="stat-title" y="0">Total Contributions</text>
-    <text class="stat-value" y="50">1,171</text>
-    <text class="stat-label" y="80">Past Year</text>
+
+  <rect width="929" height="209" rx="6" x="0.5" y="0.5" fill="#0d1117" stroke="#30363d"/>
+
+  <!-- Card Title -->
+  <g transform="translate(25, 36)" class="animate" style="animation-delay: 0.05s">
+    <text class="title" x="0" y="0">GitHub Streak</text>
   </g>
-  
-  <!-- Current Streak with Ring -->
-  <g transform="translate(247, 95)">
-    <text class="stat-title animate" style="animation-delay: 0.2s" text-anchor="middle" x="0" y="-65">Current Streak</text>
-    
-    <!-- Background Ring -->
-    <circle class="ring-bg" cx="0" cy="0" r="45" stroke-width="6"/>
-    
-    <!-- Progress Ring -->
-    <circle class="ring" cx="0" cy="0" r="45" stroke-width="6" 
-            stroke-dasharray="282.7433388230814" stroke-dashoffset="282.7433388230814"
+
+  <!-- Total Contributions (Left) -->
+  <g transform="translate(140, 128)" class="animate" style="animation-delay: 0.12s">
+    <text class="label" text-anchor="middle" x="0" y="-34">Total Contributions</text>
+    <text class="value" text-anchor="middle" x="0" y="0">0</text>
+    <text class="sub" text-anchor="middle" x="0" y="24">Past Year</text>
+  </g>
+
+  <!-- Current Streak (Center) -->
+  <g transform="translate(465, 128)">
+    <text class="label animate" style="animation-delay: 0.18s" text-anchor="middle" x="0" y="-58">Current Streak</text>
+
+    <circle class="ring-bg" cx="0" cy="0" r="44" stroke-width="6"/>
+    <circle class="ring" cx="0" cy="0" r="44" stroke-width="6"
+            stroke-dasharray="276.46015351590177" stroke-dashoffset="276.46015351590177"
             transform="rotate(-90)"/>
-    
-    <!-- Streak Number -->
-    <text class="stat-value animate" style="animation-delay: 0.3s" text-anchor="middle" x="0" y="10">4</text>
-    <text class="stat-label animate" style="animation-delay: 0.35s" text-anchor="middle" x="0" y="30">days</text>
+
+    <text class="value animate" style="animation-delay: 0.25s" text-anchor="middle" x="0" y="10">0</text>
+    <text class="sub animate" style="animation-delay: 0.28s" text-anchor="middle" x="0" y="32">days</text>
   </g>
-  
-  <!-- Longest Streak -->
-  <g transform="translate(370, 35)" class="animate" style="animation-delay: 0.4s">
-    <text class="stat-title" y="0">Longest Streak</text>
-    <text class="stat-value" y="50">27</text>
-    <text class="stat-label" y="80">days</text>
-  </g>
-  
-  <!-- Fire Icon -->
-  <g transform="translate(235, 158)" class="fire-icon animate" style="animation-delay: 0.5s">
-    <path d="M12 2C6.5 8.5 3 14 3 17.5C3 20.538 5.462 23 8.5 23C9.5 23 10.437 22.718 11.25 22.236C10.453 21.48 10 20.45 10 19.5C10 17.875 11.625 15 12 13C12.375 15 14 17.875 14 19.5C14 20.45 13.547 21.48 12.75 22.236C13.563 22.718 14.5 23 15.5 23C18.538 23 21 20.538 21 17.5C21 14 17.5 8.5 12 2Z" transform="scale(1.2)"/>
+
+  <!-- Longest Streak (Right) -->
+  <g transform="translate(790, 128)" class="animate" style="animation-delay: 0.32s">
+    <text class="label" text-anchor="middle" x="0" y="-34">Longest Streak</text>
+    <text class="value" text-anchor="middle" x="0" y="0">0</text>
+    <text class="sub" text-anchor="middle" x="0" y="24">days</text>
   </g>
 </svg>

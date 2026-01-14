@@ -1,8 +1,12 @@
 
+
       <svg
-        width="350"
+
+        width="450"
         height="311"
-        viewBox="0 0 350 311"
+
+        viewBox="0 0 450 311"
+
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
@@ -20,7 +24,7 @@
             /* Selector detects Firefox */
             .header { font-size: 15.5px; }
           }
-          
+
     @keyframes slideInAnimation {
       from {
         width: 0;
@@ -59,9 +63,9 @@
     .lang-progress{
       animation: growWidthAnimation 0.6s ease-in-out forwards;
     }
-    
 
-          
+
+
       /* Animations */
       @keyframes scaleInAnimation {
         from {
@@ -79,11 +83,11 @@
           opacity: 1;
         }
       }
-    
-          
+
+
         </style>
 
-        
+
 
         <rect
           data-testid="card-bg"
@@ -97,7 +101,7 @@
           stroke-opacity="1"
         />
 
-        
+
       <g
         data-testid="card-title"
         transform="translate(25, 35)"
@@ -111,15 +115,15 @@
       >Most Used Languages</text>
     </g>
       </g>
-    
+
 
         <g
           data-testid="main-card-body"
           transform="translate(0, 55)"
         >
-          
+
     <svg data-testid="lang-items" x="25">
-      
+
     <g transform="translate(0, 0)">
       <g transform="translate(0, 0)">
         <g transform="translate(0, 0)">
@@ -181,8 +185,10 @@
   </g>
       </g>
 
-      <g transform="translate(125, 3)">
-        <svg width="350" height="350">
+
+      <g transform="translate(150, 3)">
+        <svg width="250" height="250">
+
        <g class="stagger" style="animation-delay: 600ms">
         <path
           data-testid="lang-donut"
@@ -193,7 +199,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 700ms">
         <path
           data-testid="lang-donut"
@@ -204,7 +210,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 800ms">
         <path
           data-testid="lang-donut"
@@ -215,7 +221,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 900ms">
         <path
           data-testid="lang-donut"
@@ -226,7 +232,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 1000ms">
         <path
           data-testid="lang-donut"
@@ -237,7 +243,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 1100ms">
         <path
           data-testid="lang-donut"
@@ -248,7 +254,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 1200ms">
         <path
           data-testid="lang-donut"
@@ -259,7 +265,7 @@
           stroke-width="12">
         </path>
       </g>
-      
+
        <g class="stagger" style="animation-delay: 1300ms">
         <path
           data-testid="lang-donut"
@@ -273,9 +279,8 @@
       </svg>
       </g>
     </g>
-  
+
     </svg>
-  
+
         </g>
       </svg>
-    

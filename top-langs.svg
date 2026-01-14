@@ -1,103 +1,127 @@
-<svg width="450" height="310" viewBox="0 0 450 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="450" height="300" viewBox="0 0 450 300" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #69ff97; }
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #69ff97; animation: fadeInAnimation 0.8s ease-in-out forwards; }
     .lang-name { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
     .lang-pct { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+    .stagger { opacity: 0; animation: fadeInAnimation 0.3s ease-in-out forwards; }
+    @keyframes fadeInAnimation { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes rotateAnimation { 
+      from { opacity: 0; transform: rotate(-90deg) scale(0.8); }
+      to { opacity: 1; transform: rotate(-90deg) scale(1); }
+    }
   </style>
-  <rect x="0.5" y="0.5" rx="4.5" width="449" height="309" fill="#0a0f0b" stroke="#69ff97"/>
-  <text class="header" x="25" y="30">Most Used Languages</text>
-  <g transform="translate(5, 30)">
+  <rect x="0.5" y="0.5" rx="4.5" width="449" height="299" fill="#0a0f0b" stroke="#69ff97"/>
+  <text class="header" x="25" y="35">Most Used Languages</text>
+  <g transform="translate(25, 55)">
     <circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#dd1100" stroke-width="30"
-            stroke-dasharray="355.6434926873307 84.17910731266926"
-            stroke-dashoffset="0"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#3572A5" stroke-width="30"
-            stroke-dasharray="37.721769786337646 402.10083021366233"
-            stroke-dashoffset="-355.6434926873307"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#DA5B0B" stroke-width="30"
-            stroke-dasharray="16.147564610291905 423.67503538970806"
-            stroke-dashoffset="-393.36526247366834"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#e34c26" stroke-width="30"
-            stroke-dasharray="9.573829290801484 430.2487707091985"
-            stroke-dashoffset="-409.51282708396025"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#ec915c" stroke-width="30"
-            stroke-dasharray="8.206139392115558 431.6164606078844"
-            stroke-dashoffset="-419.08665637476173"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#f1e05a" stroke-width="30"
-            stroke-dasharray="6.838449493429632 432.98415050657036"
-            stroke-dashoffset="-427.2927957668773"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#00ADD8" stroke-width="30"
-            stroke-dasharray="1.5882850436352691 438.2343149563647"
-            stroke-dashoffset="-434.1312452603069"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#663399" stroke-width="30"
-            stroke-dasharray="1.5441660146454006 438.2784339853546"
-            stroke-dashoffset="-435.7195303039422"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#ffc200" stroke-width="30"
-            stroke-dasharray="1.3235708696960578 438.4990291303039"
-            stroke-dashoffset="-437.26369631858756"
-            transform="rotate(-90, 100, 100)"/><circle cx="100" cy="100" r="70" fill="none" 
-            stroke="#3178c6" stroke-width="30"
-            stroke-dasharray="1.2353328117163207 438.58726718828365"
-            stroke-dashoffset="-438.58726718828365"
-            transform="rotate(-90, 100, 100)"/>
+      stroke="#dd1100" stroke-width="30"
+      stroke-dasharray="350.63504775280893 84.18755224719104"
+      stroke-dashoffset="0"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.0s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#3572A5" stroke-width="30"
+      stroke-dasharray="32.76967752808989 402.05292247191005"
+      stroke-dashoffset="-355.63504775280893"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.1s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#DA5B0B" stroke-width="30"
+      stroke-dasharray="11.149184550561799 423.67341544943815"
+      stroke-dashoffset="-393.40472528089884"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.2s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#e34c26" stroke-width="30"
+      stroke-dasharray="4.530666292134832 430.29193370786516"
+      stroke-dashoffset="-409.55390983146066"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.30000000000000004s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#ec915c" stroke-width="30"
+      stroke-dasharray="3.2069626404494382 431.61563735955053"
+      stroke-dashoffset="-419.08457612359547"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.4s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#f1e05a" stroke-width="30"
+      stroke-dasharray="1.839135533707866 432.9834644662921"
+      stroke-dashoffset="-427.2915387640449"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.5s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#00ADD8" stroke-width="30"
+      stroke-dasharray="1 433.82259999999997"
+      stroke-dashoffset="-434.13067429775276"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.6000000000000001s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#663399" stroke-width="30"
+      stroke-dasharray="1 433.82259999999997"
+      stroke-dashoffset="-440.13067429775276"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.7000000000000001s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#ffc200" stroke-width="30"
+      stroke-dasharray="1 433.82259999999997"
+      stroke-dashoffset="-446.13067429775276"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.8s forwards; opacity: 0;"/>
+    <circle cx="100" cy="100" r="70" fill="none" 
+      stroke="#3178c6" stroke-width="30"
+      stroke-dasharray="1 438.82259999999997"
+      stroke-dashoffset="-452.13067429775276"
+      transform="rotate(-90, 100, 100)"
+      style="animation: rotateAnimation 1.5s ease-in-out 0.9s forwards; opacity: 0;"/>
   </g>
-  
-        <g transform="translate(220, 30)">
-            <circle cx="6" cy="6" r="6" fill="#dd1100"/>
-            <text x="18" y="10" class="lang-name">Mathematica</text>
-            <text x="200" y="10" class="lang-pct">80.6%</text>
-        </g>
-        <g transform="translate(220, 55)">
-            <circle cx="6" cy="6" r="6" fill="#3572A5"/>
-            <text x="18" y="10" class="lang-name">Python</text>
-            <text x="200" y="10" class="lang-pct">8.6%</text>
-        </g>
-        <g transform="translate(220, 80)">
-            <circle cx="6" cy="6" r="6" fill="#DA5B0B"/>
-            <text x="18" y="10" class="lang-name">Jupyter Notebook</text>
-            <text x="200" y="10" class="lang-pct">3.7%</text>
-        </g>
-        <g transform="translate(220, 105)">
-            <circle cx="6" cy="6" r="6" fill="#e34c26"/>
-            <text x="18" y="10" class="lang-name">HTML</text>
-            <text x="200" y="10" class="lang-pct">2.2%</text>
-        </g>
-        <g transform="translate(220, 130)">
-            <circle cx="6" cy="6" r="6" fill="#ec915c"/>
-            <text x="18" y="10" class="lang-name">Zig</text>
-            <text x="200" y="10" class="lang-pct">1.9%</text>
-        </g>
-        <g transform="translate(220, 155)">
-            <circle cx="6" cy="6" r="6" fill="#f1e05a"/>
-            <text x="18" y="10" class="lang-name">JavaScript</text>
-            <text x="200" y="10" class="lang-pct">1.6%</text>
-        </g>
-        <g transform="translate(220, 180)">
-            <circle cx="6" cy="6" r="6" fill="#00ADD8"/>
-            <text x="18" y="10" class="lang-name">Go</text>
-            <text x="200" y="10" class="lang-pct">0.4%</text>
-        </g>
-        <g transform="translate(220, 205)">
-            <circle cx="6" cy="6" r="6" fill="#663399"/>
-            <text x="18" y="10" class="lang-name">CSS</text>
-            <text x="200" y="10" class="lang-pct">0.3%</text>
-        </g>
-        <g transform="translate(220, 230)">
-            <circle cx="6" cy="6" r="6" fill="#ffc200"/>
-            <text x="18" y="10" class="lang-name">Nim</text>
-            <text x="200" y="10" class="lang-pct">0.3%</text>
-        </g>
-        <g transform="translate(220, 255)">
-            <circle cx="6" cy="6" r="6" fill="#3178c6"/>
-            <text x="18" y="10" class="lang-name">TypeScript</text>
-            <text x="200" y="10" class="lang-pct">0.3%</text>
-        </g>
+  <g class="stagger" style="animation-delay: 400ms" transform="translate(220, 50)">
+    <circle cx="6" cy="6" r="6" fill="#dd1100"/>
+    <text x="18" y="10" class="lang-name">Mathematica</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">80.6%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 450ms" transform="translate(220, 72)">
+    <circle cx="6" cy="6" r="6" fill="#3572A5"/>
+    <text x="18" y="10" class="lang-name">Python</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">8.6%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 500ms" transform="translate(220, 94)">
+    <circle cx="6" cy="6" r="6" fill="#DA5B0B"/>
+    <text x="18" y="10" class="lang-name">Jupyter Notebook</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">3.7%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 550ms" transform="translate(220, 116)">
+    <circle cx="6" cy="6" r="6" fill="#e34c26"/>
+    <text x="18" y="10" class="lang-name">HTML</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">2.2%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 600ms" transform="translate(220, 138)">
+    <circle cx="6" cy="6" r="6" fill="#ec915c"/>
+    <text x="18" y="10" class="lang-name">Zig</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">1.9%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 650ms" transform="translate(220, 160)">
+    <circle cx="6" cy="6" r="6" fill="#f1e05a"/>
+    <text x="18" y="10" class="lang-name">JavaScript</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">1.6%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 700ms" transform="translate(220, 182)">
+    <circle cx="6" cy="6" r="6" fill="#00ADD8"/>
+    <text x="18" y="10" class="lang-name">Go</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">0.4%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 750ms" transform="translate(220, 204)">
+    <circle cx="6" cy="6" r="6" fill="#663399"/>
+    <text x="18" y="10" class="lang-name">CSS</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">0.3%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 800ms" transform="translate(220, 226)">
+    <circle cx="6" cy="6" r="6" fill="#ffc200"/>
+    <text x="18" y="10" class="lang-name">Nim</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">0.3%</text>
+  </g>
+  <g class="stagger" style="animation-delay: 850ms" transform="translate(220, 248)">
+    <circle cx="6" cy="6" r="6" fill="#3178c6"/>
+    <text x="18" y="10" class="lang-name">TypeScript</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">0.3%</text>
+  </g>
 </svg>

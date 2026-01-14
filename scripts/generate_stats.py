@@ -399,18 +399,21 @@ def generate_top_langs_svg(languages: list[dict], theme: str = "merko", layout: 
             "border": "#69ff97",
             "title": "#69ff97",
             "text": "#c9d1d9",
+            "animation": "#69ff97",
         },
         "dark": {
             "bg": "#151515",
             "border": "#e4e2e2",
             "title": "#fff",
             "text": "#9f9f9f",
+            "animation": "#fb8c00",
         },
         "default": {
             "bg": "#fffefe",
             "border": "#e4e2e2",
             "title": "#2f80ed",
             "text": "#434d58",
+            "animation": "#2f80ed",
         },
     }
     t = themes.get(theme, themes["merko"])
@@ -420,48 +423,61 @@ def generate_top_langs_svg(languages: list[dict], theme: str = "merko", layout: 
     # Generate donut chart data
     total = sum(lang["percentage"] for lang in top_langs)
     
-    # SVG donut chart
+    # SVG donut chart with proper segment calculation
     cx, cy, r = 100, 100, 70
     stroke_width = 30
     circumference = 2 * 3.14159 * r
     
     donut_segments = []
-    offset = 0
-    for lang in top_langs:
+    accumulated_offset = 0
+    for i, lang in enumerate(top_langs):
         pct = lang["percentage"] / total if total > 0 else 0
         length = circumference * pct
-        donut_segments.append(f'''<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" 
-            stroke="{lang['color']}" stroke-width="{stroke_width}"
-            stroke-dasharray="{length} {circumference - length}"
-            stroke-dashoffset="{-offset}"
-            transform="rotate(-90, {cx}, {cy})"/>''')
-        offset += length
+        gap = 5  # Small gap between segments
+        
+        # Calculate dash array with gap
+        dash_length = max(1, length - gap)
+        gap_length = gap if i < len(top_langs) - 1 else 0
+        
+        donut_segments.append(f'''    <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" 
+      stroke="{lang['color']}" stroke-width="{stroke_width}"
+      stroke-dasharray="{dash_length} {circumference - dash_length - gap_length}"
+      stroke-dashoffset="{accumulated_offset}"
+      transform="rotate(-90, {cx}, {cy})"
+      style="animation: rotateAnimation 1.5s ease-in-out {i * 0.1}s forwards; opacity: 0;"/>''')
+        
+        accumulated_offset -= dash_length + gap_length
     
-    # Language legend
+    # Language legend with proper spacing
     legend_items = []
     for i, lang in enumerate(top_langs):
-        y_offset = 30 + i * 25
-        legend_items.append(f'''
-        <g transform="translate(220, {y_offset})">
-            <circle cx="6" cy="6" r="6" fill="{lang['color']}"/>
-            <text x="18" y="10" class="lang-name">{lang['name']}</text>
-            <text x="200" y="10" class="lang-pct">{lang['percentage']:.1f}%</text>
-        </g>''')
+        y_offset = 50 + i * 22
+        legend_items.append(f'''  <g class="stagger" style="animation-delay: {400 + i * 50}ms" transform="translate(220, {y_offset})">
+    <circle cx="6" cy="6" r="6" fill="{lang['color']}"/>
+    <text x="18" y="10" class="lang-name">{lang['name']}</text>
+    <text x="180" y="10" class="lang-pct" text-anchor="end">{lang['percentage']:.1f}%</text>
+  </g>''')
     
-    height = max(200, 30 + len(top_langs) * 25 + 30)
+    height = max(280, 50 + len(top_langs) * 22 + 30)
     
     svg = f'''<svg width="450" height="{height}" viewBox="0 0 450 {height}" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: {t["title"]}; }}
+    .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: {t["title"]}; animation: fadeInAnimation 0.8s ease-in-out forwards; }}
     .lang-name {{ font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: {t["text"]}; }}
     .lang-pct {{ font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: {t["text"]}; }}
+    .stagger {{ opacity: 0; animation: fadeInAnimation 0.3s ease-in-out forwards; }}
+    @keyframes fadeInAnimation {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
+    @keyframes rotateAnimation {{ 
+      from {{ opacity: 0; transform: rotate(-90deg) scale(0.8); }}
+      to {{ opacity: 1; transform: rotate(-90deg) scale(1); }}
+    }}
   </style>
   <rect x="0.5" y="0.5" rx="4.5" width="449" height="{height - 1}" fill="{t["bg"]}" stroke="{t["border"]}"/>
-  <text class="header" x="25" y="30">Most Used Languages</text>
-  <g transform="translate(5, 30)">
-    {"".join(donut_segments)}
+  <text class="header" x="25" y="35">Most Used Languages</text>
+  <g transform="translate(25, 55)">
+{chr(10).join(donut_segments)}
   </g>
-  {"".join(legend_items)}
+{chr(10).join(legend_items)}
 </svg>'''
     return svg
 
@@ -540,8 +556,10 @@ def generate_streak_svg(streaks: dict, username: str, theme: str = "tokyonight")
   <g transform="translate(205, 48)">
     <text class="header" x="40" y="0" text-anchor="middle">Current Streak</text>
     <!-- Fire icon / ring -->
-    <circle cx="40" cy="50" r="35" fill="none" stroke="{t["ring"]}" stroke-width="4"/>
-    <text class="stat" x="40" y="58" text-anchor="middle">{current}</text>
+    <circle cx="40" cy="40" r="35" fill="none" stroke="{t["ring"]}" stroke-width="4" opacity="0.3"/>
+    <circle cx="40" cy="40" r="35" fill="none" stroke="{t["ring"]}" stroke-width="4" 
+      stroke-dasharray="220" stroke-dashoffset="55" stroke-linecap="round"/>
+    <text class="stat" x="40" y="50" text-anchor="middle">{current}</text>
     <text class="dates" x="40" y="100" text-anchor="middle">{current_range or "No active streak"}</text>
   </g>
   
@@ -618,9 +636,9 @@ def generate_activity_graph_svg(
     for i in range(num_y_labels + 1):
         value = int(max_count * i / num_y_labels)
         y = padding_top + graph_height - (i / num_y_labels * graph_height)
-        y_labels.append(f'<text x="{padding_left - 10}" y="{y + 4}" class="axis-label" text-anchor="end">{value}</text>')
+        y_labels.append(f'    <text x="{padding_left - 10}" y="{y + 4}" class="axis-label" text-anchor="end">{value}</text>')
         # Grid line
-        y_labels.append(f'<line x1="{padding_left}" y1="{y}" x2="{width - padding_right}" y2="{y}" stroke="{text_color}" stroke-opacity="0.1"/>')
+        y_labels.append(f'    <line x1="{padding_left}" y1="{y}" x2="{width - padding_right}" y2="{y}" stroke="{text_color}" stroke-opacity="0.1"/>')
     
     # Generate X-axis labels (show ~7 dates)
     x_labels = []
@@ -629,12 +647,12 @@ def generate_activity_graph_svg(
         x = padding_left + i * x_step
         date_obj = datetime.strptime(dates[i], "%Y-%m-%d")
         label = date_obj.strftime("%b %d")
-        x_labels.append(f'<text x="{x}" y="{height - 20}" class="axis-label" text-anchor="middle">{label}</text>')
+        x_labels.append(f'    <text x="{x}" y="{height - 20}" class="axis-label" text-anchor="middle">{label}</text>')
     
     # Generate point markers
     point_markers = []
     for x, y in points:
-        point_markers.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="{point_color}"/>')
+        point_markers.append(f'    <circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="{point_color}"/>')
     
     border_style = "" if hide_border else f'stroke="{text_color}" stroke-width="1"'
     
@@ -649,19 +667,19 @@ def generate_activity_graph_svg(
   <text class="title" x="{width // 2}" y="25" text-anchor="middle">{username}'s Contribution Graph</text>
   
   <!-- Y-axis labels and grid -->
-  {"".join(y_labels)}
+{chr(10).join(y_labels)}
   
   <!-- X-axis labels -->
-  {"".join(x_labels)}
+{chr(10).join(x_labels)}
   
   <!-- Area fill -->
-  {f'<path d="{area_path}" fill="{line_color}" fill-opacity="0.1"/>' if area and area_path else ''}
+  {f'  <path d="{area_path}" fill="{line_color}" fill-opacity="0.1"/>' if area and area_path else ''}
   
   <!-- Line -->
   <path d="{line_path}" stroke="{line_color}" stroke-width="2" fill="none"/>
   
   <!-- Points -->
-  {"".join(point_markers)}
+{chr(10).join(point_markers)}
   
   <!-- Axis lines -->
   <line x1="{padding_left}" y1="{padding_top}" x2="{padding_left}" y2="{padding_top + graph_height}" stroke="{text_color}" stroke-opacity="0.3"/>

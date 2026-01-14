@@ -1,127 +1,281 @@
-<svg width="450" height="300" viewBox="0 0 450 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #69ff97; animation: fadeInAnimation 0.8s ease-in-out forwards; }
-    .lang-name { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-    .lang-pct { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-    .stagger { opacity: 0; animation: fadeInAnimation 0.3s ease-in-out forwards; }
-    @keyframes fadeInAnimation { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes rotateAnimation { 
-      from { opacity: 0; transform: rotate(-90deg) scale(0.8); }
-      to { opacity: 1; transform: rotate(-90deg) scale(1); }
+
+      <svg
+        width="350"
+        height="311"
+        viewBox="0 0 350 311"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="descId"
+      >
+        <title id="titleId"></title>
+        <desc id="descId"></desc>
+        <style>
+          .header {
+            font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+            fill: #58a6ff;
+            animation: fadeInAnimation 0.8s ease-in-out forwards;
+          }
+          @supports(-moz-appearance: auto) {
+            /* Selector detects Firefox */
+            .header { font-size: 15.5px; }
+          }
+          
+    @keyframes slideInAnimation {
+      from {
+        width: 0;
+      }
+      to {
+        width: calc(100%-100px);
+      }
     }
-  </style>
-  <rect x="0.5" y="0.5" rx="4.5" width="449" height="299" fill="#0a0f0b" stroke="#69ff97"/>
-  <text class="header" x="25" y="35">Most Used Languages</text>
-  <g transform="translate(25, 55)">
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#dd1100" stroke-width="30"
-      stroke-dasharray="350.63504775280893 84.18755224719104"
-      stroke-dashoffset="0"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.0s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#3572A5" stroke-width="30"
-      stroke-dasharray="32.76967752808989 402.05292247191005"
-      stroke-dashoffset="-355.63504775280893"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.1s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#DA5B0B" stroke-width="30"
-      stroke-dasharray="11.149184550561799 423.67341544943815"
-      stroke-dashoffset="-393.40472528089884"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.2s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#e34c26" stroke-width="30"
-      stroke-dasharray="4.530666292134832 430.29193370786516"
-      stroke-dashoffset="-409.55390983146066"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.30000000000000004s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#ec915c" stroke-width="30"
-      stroke-dasharray="3.2069626404494382 431.61563735955053"
-      stroke-dashoffset="-419.08457612359547"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.4s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#f1e05a" stroke-width="30"
-      stroke-dasharray="1.839135533707866 432.9834644662921"
-      stroke-dashoffset="-427.2915387640449"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.5s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#00ADD8" stroke-width="30"
-      stroke-dasharray="1 433.82259999999997"
-      stroke-dashoffset="-434.13067429775276"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.6000000000000001s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#663399" stroke-width="30"
-      stroke-dasharray="1 433.82259999999997"
-      stroke-dashoffset="-440.13067429775276"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.7000000000000001s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#ffc200" stroke-width="30"
-      stroke-dasharray="1 433.82259999999997"
-      stroke-dashoffset="-446.13067429775276"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.8s forwards; opacity: 0;"/>
-    <circle cx="100" cy="100" r="70" fill="none" 
-      stroke="#3178c6" stroke-width="30"
-      stroke-dasharray="1 438.82259999999997"
-      stroke-dashoffset="-452.13067429775276"
-      transform="rotate(-90, 100, 100)"
-      style="animation: rotateAnimation 1.5s ease-in-out 0.9s forwards; opacity: 0;"/>
+    @keyframes growWidthAnimation {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    .stat {
+      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #c9d1d9;
+    }
+    @supports(-moz-appearance: auto) {
+      /* Selector detects Firefox */
+      .stat { font-size:12px; }
+    }
+    .bold { font-weight: 700 }
+    .lang-name {
+      font: 400 11px "Segoe UI", Ubuntu, Sans-Serif;
+      fill: #c9d1d9;
+    }
+    .stagger {
+      opacity: 0;
+      animation: fadeInAnimation 0.3s ease-in-out forwards;
+    }
+    #rect-mask rect{
+      animation: slideInAnimation 1s ease-in-out forwards;
+    }
+    .lang-progress{
+      animation: growWidthAnimation 0.6s ease-in-out forwards;
+    }
+    
+
+          
+      /* Animations */
+      @keyframes scaleInAnimation {
+        from {
+          transform: translate(-5px, 5px) scale(0);
+        }
+        to {
+          transform: translate(-5px, 5px) scale(1);
+        }
+      }
+      @keyframes fadeInAnimation {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    
+          
+        </style>
+
+        
+
+        <rect
+          data-testid="card-bg"
+          x="0.5"
+          y="0.5"
+          rx="4.5"
+          height="99%"
+          stroke="#30363d"
+          width="349"
+          fill="#0d1117"
+          stroke-opacity="1"
+        />
+
+        
+      <g
+        data-testid="card-title"
+        transform="translate(25, 35)"
+      >
+        <g transform="translate(0, 0)">
+      <text
+        x="0"
+        y="0"
+        class="header"
+        data-testid="header"
+      >Most Used Languages</text>
+    </g>
+      </g>
+    
+
+        <g
+          data-testid="main-card-body"
+          transform="translate(0, 55)"
+        >
+          
+    <svg data-testid="lang-items" x="25">
+      
+    <g transform="translate(0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="translate(0, 0)">
+    <g class="stagger" style="animation-delay: 450ms">
+      <circle cx="5" cy="6" r="5" fill="#dd1100" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        Mathematica 80.14%
+      </text>
+    </g>
+  </g><g transform="translate(0, 32)">
+    <g class="stagger" style="animation-delay: 600ms">
+      <circle cx="5" cy="6" r="5" fill="#3572A5" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        Python 8.67%
+      </text>
+    </g>
+  </g><g transform="translate(0, 64)">
+    <g class="stagger" style="animation-delay: 750ms">
+      <circle cx="5" cy="6" r="5" fill="#DA5B0B" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        Jupyter Notebook 3.64%
+      </text>
+    </g>
+  </g><g transform="translate(0, 96)">
+    <g class="stagger" style="animation-delay: 900ms">
+      <circle cx="5" cy="6" r="5" fill="#e34c26" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        HTML 3.08%
+      </text>
+    </g>
+  </g><g transform="translate(0, 128)">
+    <g class="stagger" style="animation-delay: 1050ms">
+      <circle cx="5" cy="6" r="5" fill="#f1e05a" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        JavaScript 2.39%
+      </text>
+    </g>
+  </g><g transform="translate(0, 160)">
+    <g class="stagger" style="animation-delay: 1200ms">
+      <circle cx="5" cy="6" r="5" fill="#ec915c" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        Zig 1.32%
+      </text>
+    </g>
+  </g><g transform="translate(0, 192)">
+    <g class="stagger" style="animation-delay: 1350ms">
+      <circle cx="5" cy="6" r="5" fill="#3178c6" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        TypeScript 0.40%
+      </text>
+    </g>
+  </g><g transform="translate(0, 224)">
+    <g class="stagger" style="animation-delay: 1500ms">
+      <circle cx="5" cy="6" r="5" fill="#663399" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        CSS 0.36%
+      </text>
+    </g>
   </g>
-  <g class="stagger" style="animation-delay: 400ms" transform="translate(220, 50)">
-    <circle cx="6" cy="6" r="6" fill="#dd1100"/>
-    <text x="18" y="10" class="lang-name">Mathematica</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">80.6%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 450ms" transform="translate(220, 72)">
-    <circle cx="6" cy="6" r="6" fill="#3572A5"/>
-    <text x="18" y="10" class="lang-name">Python</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">8.6%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 500ms" transform="translate(220, 94)">
-    <circle cx="6" cy="6" r="6" fill="#DA5B0B"/>
-    <text x="18" y="10" class="lang-name">Jupyter Notebook</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">3.7%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 550ms" transform="translate(220, 116)">
-    <circle cx="6" cy="6" r="6" fill="#e34c26"/>
-    <text x="18" y="10" class="lang-name">HTML</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">2.2%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 600ms" transform="translate(220, 138)">
-    <circle cx="6" cy="6" r="6" fill="#ec915c"/>
-    <text x="18" y="10" class="lang-name">Zig</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">1.9%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 650ms" transform="translate(220, 160)">
-    <circle cx="6" cy="6" r="6" fill="#f1e05a"/>
-    <text x="18" y="10" class="lang-name">JavaScript</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">1.6%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 700ms" transform="translate(220, 182)">
-    <circle cx="6" cy="6" r="6" fill="#00ADD8"/>
-    <text x="18" y="10" class="lang-name">Go</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">0.4%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 750ms" transform="translate(220, 204)">
-    <circle cx="6" cy="6" r="6" fill="#663399"/>
-    <text x="18" y="10" class="lang-name">CSS</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">0.3%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 800ms" transform="translate(220, 226)">
-    <circle cx="6" cy="6" r="6" fill="#ffc200"/>
-    <text x="18" y="10" class="lang-name">Nim</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">0.3%</text>
-  </g>
-  <g class="stagger" style="animation-delay: 850ms" transform="translate(220, 248)">
-    <circle cx="6" cy="6" r="6" fill="#3178c6"/>
-    <text x="18" y="10" class="lang-name">TypeScript</text>
-    <text x="180" y="10" class="lang-pct" text-anchor="end">0.3%</text>
-  </g>
-</svg>
+      </g>
+
+      <g transform="translate(125, 3)">
+        <svg width="350" height="350">
+       <g class="stagger" style="animation-delay: 600ms">
+        <path
+          data-testid="lang-donut"
+          size="80.14"
+          d="M 62.92958161842831 98.6823178702963 A 56.66666666666667 56.66666666666667 0 1 0 116.66666666666667 60"
+          stroke="#dd1100"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 700ms">
+        <path
+          data-testid="lang-donut"
+          size="8.67"
+          d="M 80.02731596325859 73.43856132831323 A 56.66666666666667 56.66666666666667 0 0 0 62.92958161842831 98.6823178702963"
+          stroke="#3572A5"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 800ms">
+        <path
+          data-testid="lang-donut"
+          size="3.64"
+          d="M 90.78204538772303 66.25736700522751 A 56.66666666666667 56.66666666666667 0 0 0 80.02731596325859 73.43856132831323"
+          stroke="#DA5B0B"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 900ms">
+        <path
+          data-testid="lang-donut"
+          size="3.08"
+          d="M 100.95977163705147 62.22032097074543 A 56.66666666666667 56.66666666666667 0 0 0 90.78204538772303 66.25736700522751"
+          stroke="#e34c26"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 1000ms">
+        <path
+          data-testid="lang-donut"
+          size="2.39"
+          d="M 109.28194930748519 60.4832433050014 A 56.66666666666667 56.66666666666667 0 0 0 100.95977163705147 62.22032097074543"
+          stroke="#f1e05a"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 1100ms">
+        <path
+          data-testid="lang-donut"
+          size="1.32"
+          d="M 113.96173646465215 60.06459547034611 A 56.66666666666667 56.66666666666667 0 0 0 109.28194930748519 60.4832433050014"
+          stroke="#ec915c"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 1200ms">
+        <path
+          data-testid="lang-donut"
+          size="0.4"
+          d="M 115.385006162052 60.01449585687314 A 56.66666666666667 56.66666666666667 0 0 0 113.96173646465215 60.06459547034611"
+          stroke="#3178c6"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 1300ms">
+        <path
+          data-testid="lang-donut"
+          size="0.36"
+          d="M 116.66666666666666 60 A 56.66666666666667 56.66666666666667 0 0 0 115.385006162052 60.01449585687314"
+          stroke="#663399"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      </svg>
+      </g>
+    </g>
+  
+    </svg>
+  
+        </g>
+      </svg>
+    

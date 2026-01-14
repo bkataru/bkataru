@@ -1,34 +1,63 @@
-<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .header { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
-    .stat { font: 700 28px 'Segoe UI', Ubuntu, Sans-Serif; fill: #38bdae; }
-    .label { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
-    .dates { font: 400 10px 'Segoe UI', Ubuntu, Sans-Serif; fill: #bf91f3; }
-  </style>
-  <rect x="0.5" y="0.5" rx="4.5" width="494" height="194" fill="#1a1b27" stroke="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+  <defs>
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes scaleIn {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+      }
+      @keyframes ringProgress {
+        from { stroke-dashoffset: 282.7433388230814; }
+        to { stroke-dashoffset: 240.85543677521747; }
+      }
+      .animate { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+      .stat-title { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+      .stat-value { font: 800 28px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
+      .stat-label { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; opacity: 0.8; }
+      .ring-bg { fill: none; stroke: #58a6ff; opacity: 0.2; }
+      .ring { fill: none; stroke: #58a6ff; stroke-linecap: round; animation: ringProgress 1s ease-out forwards; }
+      .fire-icon { fill: #f97316; }
+    </style>
+  </defs>
+  
+  <rect width="494" height="194" rx="4.5" x="0.5" y="0.5" fill="#0d1117" stroke="#30363d"/>
   
   <!-- Total Contributions -->
-  <g transform="translate(50, 48)">
-    <text class="header" x="40" y="0" text-anchor="middle">Total Contributions</text>
-    <text class="stat" x="40" y="40" text-anchor="middle">2,548</text>
-    <text class="dates" x="40" y="58" text-anchor="middle">All Time</text>
+  <g transform="translate(35, 35)" class="animate" style="animation-delay: 0.1s">
+    <text class="stat-title" y="0">Total Contributions</text>
+    <text class="stat-value" y="50">1,171</text>
+    <text class="stat-label" y="80">Past Year</text>
   </g>
   
-  <!-- Current Streak -->
-  <g transform="translate(205, 48)">
-    <text class="header" x="40" y="0" text-anchor="middle">Current Streak</text>
-    <!-- Fire icon / ring -->
-    <circle cx="40" cy="40" r="35" fill="none" stroke="#70a5fd" stroke-width="4" opacity="0.3"/>
-    <circle cx="40" cy="40" r="35" fill="none" stroke="#70a5fd" stroke-width="4" 
-      stroke-dasharray="220" stroke-dashoffset="55" stroke-linecap="round"/>
-    <text class="stat" x="40" y="50" text-anchor="middle">4</text>
-    <text class="dates" x="40" y="100" text-anchor="middle">Jan 12, 2026 - Jan 15, 2026</text>
+  <!-- Current Streak with Ring -->
+  <g transform="translate(247, 95)">
+    <text class="stat-title animate" style="animation-delay: 0.2s" text-anchor="middle" x="0" y="-65">Current Streak</text>
+    
+    <!-- Background Ring -->
+    <circle class="ring-bg" cx="0" cy="0" r="45" stroke-width="6"/>
+    
+    <!-- Progress Ring -->
+    <circle class="ring" cx="0" cy="0" r="45" stroke-width="6" 
+            stroke-dasharray="282.7433388230814" stroke-dashoffset="282.7433388230814"
+            transform="rotate(-90)"/>
+    
+    <!-- Streak Number -->
+    <text class="stat-value animate" style="animation-delay: 0.3s" text-anchor="middle" x="0" y="10">4</text>
+    <text class="stat-label animate" style="animation-delay: 0.35s" text-anchor="middle" x="0" y="30">days</text>
   </g>
   
   <!-- Longest Streak -->
-  <g transform="translate(365, 48)">
-    <text class="header" x="40" y="0" text-anchor="middle">Longest Streak</text>
-    <text class="stat" x="40" y="40" text-anchor="middle">27</text>
-    <text class="dates" x="40" y="58" text-anchor="middle">Dec 03, 2025 - Dec 29, 2025</text>
+  <g transform="translate(370, 35)" class="animate" style="animation-delay: 0.4s">
+    <text class="stat-title" y="0">Longest Streak</text>
+    <text class="stat-value" y="50">27</text>
+    <text class="stat-label" y="80">days</text>
+  </g>
+  
+  <!-- Fire Icon -->
+  <g transform="translate(235, 158)" class="fire-icon animate" style="animation-delay: 0.5s">
+    <path d="M12 2C6.5 8.5 3 14 3 17.5C3 20.538 5.462 23 8.5 23C9.5 23 10.437 22.718 11.25 22.236C10.453 21.48 10 20.45 10 19.5C10 17.875 11.625 15 12 13C12.375 15 14 17.875 14 19.5C14 20.45 13.547 21.48 12.75 22.236C13.563 22.718 14.5 23 15.5 23C18.538 23 21 20.538 21 17.5C21 14 17.5 8.5 12 2Z" transform="scale(1.2)"/>
   </g>
 </svg>

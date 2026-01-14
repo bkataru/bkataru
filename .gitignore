@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+vendors/*/node_modules/
+
+# Environment
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Lockfiles (optional, can be committed if preferred)
+# bun.lock

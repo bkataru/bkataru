@@ -71,17 +71,17 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 ---
 
 <p align="center">
-  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true" alt="Top Languages" />
+  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=2" alt="Top Languages" />
   &nbsp;&nbsp;
-  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true" alt="GitHub Stats" />
+  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=2" alt="GitHub Stats" />
 </p>
 
 <p align="center">
-  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true" alt="GitHub Streak" />
+  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true&v=2" alt="GitHub Streak" />
 </p>
 
 <p align="center">
-  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true" alt="Activity Graph" />
+  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true&v=2" alt="Activity Graph" />
 </p>
 
 ---

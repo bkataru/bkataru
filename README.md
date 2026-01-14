@@ -70,12 +70,26 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 
 ---
 
-<div align="center"> 
-  <img src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true" alt="Top Languages" />
-  <img src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true" alt="GitHub Stats" />
-  <img src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true" alt="GitHub Streak" />
-  <img src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true" alt="Activity Graph" />
-</div>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true" alt="Top Languages" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true" alt="GitHub Stats" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true" alt="GitHub Streak" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true" alt="Activity Graph" />
+    </td>
+  </tr>
+</table>
 
 ---
 

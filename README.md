@@ -1,17 +1,5 @@
 <h1 align="center">Greetings, Programs, I'm Baalateja 👋</h1>
 
-<style>
-  /* README widget grid helpers */
-  .widgets-grid img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  .widgets-grid .wide {
-    width: 100%;
-  }
-</style>
-
 <div align="center"> 
   <img src="https://github.com/bkataru/bkataru/blob/main/technomancy.png?raw=true" alt="bkataru" /> 
 </div>
@@ -82,26 +70,19 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 
 ---
 
-<table align="center" class="widgets-grid">
-  <tr>
-    <td align="center" width="50%">
-      <img width="450" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true" alt="Top Languages" />
-    </td>
-    <td align="center" width="50%">
-      <img width="450" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true" alt="GitHub Stats" />
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <img class="wide" width="930" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true" alt="GitHub Streak" />
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <img class="wide" width="930" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true" alt="Activity Graph" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true" alt="Top Languages" />
+  &nbsp;&nbsp;
+  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true" alt="GitHub Stats" />
+</p>
+
+<p align="center">
+  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true" alt="GitHub Streak" />
+</p>
+
+<p align="center">
+  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true" alt="Activity Graph" />
+</p>
 
 ---
 

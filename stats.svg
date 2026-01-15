@@ -1,15 +1,15 @@
 
       <svg
-        width="467"
+        width="450"
         height="270"
-        viewBox="0 0 467 270"
+        viewBox="0 0 450 270"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="descId"
       >
         <title id="titleId">Baalateja Kataru's GitHub Stats, Rank: A-</title>
-        <desc id="descId">Total Stars Earned: 70, Total Commits  : 2083, Total PRs: 86, Total PRs Merged: 77, Merged PRs Percentage: 89.53, Total PRs Reviewed: 3, Total Issues: 38, Contributed to (last year): 124</desc>
+        <desc id="descId">Total Stars Earned: 70, Total Commits  : 2102, Total PRs: 86, Total PRs Merged: 77, Merged PRs Percentage: 89.53, Total PRs Reviewed: 3, Total Issues: 38, Contributed to (last year): 125</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 81.00863517746349;
+        stroke-dashoffset: 80.8792854422776;
       }
     }
   
@@ -110,7 +110,7 @@
           rx="4.5"
           height="99%"
           stroke="#30363d"
-          width="466"
+          width="449"
           fill="#0d1117"
           stroke-opacity="1"
         />
@@ -137,7 +137,7 @@
         >
           
     <g data-testid="rank-circle"
-          transform="translate(390.5, 85)">
+          transform="translate(373.5, 85)">
         <circle class="rank-circle-rim" cx="-10" cy="8" r="40" />
         <circle class="rank-circle" cx="-10" cy="8" r="40" />
         <g class="rank-text">
@@ -267,7 +267,7 @@
         x="219.01"
         y="12.5"
         data-testid="contribs"
-      >124</text>
+      >125</text>
     </g>
   </g>
     </svg>

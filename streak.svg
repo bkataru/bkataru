@@ -7,7 +7,7 @@
       }
       @keyframes ringProgress {
         from { stroke-dashoffset: 276.46015351590177; }
-        to { stroke-dashoffset: 276.46015351590177; }
+        to { stroke-dashoffset: 235.50309373576818; }
       }
 
       .animate { animation: fadeIn 0.35s ease-out forwards; opacity: 0; }
@@ -50,7 +50,7 @@
   <!-- Total Contributions (Left) -->
   <g transform="translate(140, 128)" class="animate" style="animation-delay: 0.12s">
     <text class="label" text-anchor="middle" x="0" y="-34">Total Contributions</text>
-    <text class="value" text-anchor="middle" x="0" y="0">0</text>
+    <text class="value" text-anchor="middle" x="0" y="0">1,190</text>
     <text class="sub" text-anchor="middle" x="0" y="24">Past Year</text>
   </g>
 
@@ -63,14 +63,14 @@
             stroke-dasharray="276.46015351590177" stroke-dashoffset="276.46015351590177"
             transform="rotate(-90)"/>
 
-    <text class="value animate" style="animation-delay: 0.25s" text-anchor="middle" x="0" y="10">0</text>
+    <text class="value animate" style="animation-delay: 0.25s" text-anchor="middle" x="0" y="10">4</text>
     <text class="sub animate" style="animation-delay: 0.28s" text-anchor="middle" x="0" y="32">days</text>
   </g>
 
   <!-- Longest Streak (Right) -->
   <g transform="translate(790, 128)" class="animate" style="animation-delay: 0.32s">
     <text class="label" text-anchor="middle" x="0" y="-34">Longest Streak</text>
-    <text class="value" text-anchor="middle" x="0" y="0">0</text>
+    <text class="value" text-anchor="middle" x="0" y="0">27</text>
     <text class="sub" text-anchor="middle" x="0" y="24">days</text>
   </g>
 </svg>

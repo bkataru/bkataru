@@ -1,6 +1,6 @@
 {
   "username": "bkataru",
-  "generated_at": "2026-01-14T23:11:12.656Z",
+  "generated_at": "2026-01-15T00:10:04.662Z",
   "widgets": [
     "stats.svg",
     "top-langs.svg",
@@ -14,6 +14,6 @@
   },
   "fallback": {
     "enabled": true,
-    "token_present": false
+    "token_present": true
   }
 }

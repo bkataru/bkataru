@@ -341,6 +341,7 @@ async function fetchContributionData(): Promise<{
 
 /**
  * Generate Streak Stats Card
+ * Uses inline styles only (no CSS animations) for consistent cross-platform rendering
  */
 async function generateStreakCard(): Promise<string> {
 	console.log("🔥 Generating streak stats...");
@@ -395,81 +396,35 @@ async function generateStreakCard(): Promise<string> {
 	const leftX = 140;
 	const rightX = width - 140;
 
+	// Inline styles for consistent rendering across all platforms
+	const titleColor = `#${themeConfig.title_color}`;
+	const textColor = `#${themeConfig.text_color}`;
+	const bgColor = `#${themeConfig.bg_color}`;
+	const borderColor = `#${themeConfig.border_color}`;
+	const ringColor = `#${themeConfig.ring_color}`;
+
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-  <defs>
-    <style>
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-6px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes ringProgress {
-        from { stroke-dashoffset: ${ringCircumference}; }
-        to { stroke-dashoffset: ${ringDashOffset}; }
-      }
+  <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="6" fill="${bgColor}" stroke="${borderColor}"/>
 
-      .animate { animation: fadeIn 0.35s ease-out forwards; opacity: 0; }
+  <!-- Title -->
+  <text x="25" y="36" font-family="Segoe UI, Ubuntu, sans-serif" font-size="18" font-weight="600" fill="${titleColor}">GitHub Streak</text>
 
-      .title {
-        font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #${themeConfig.title_color};
-      }
+  <!-- Total Contributions (Left Column) -->
+  <text x="${leftX}" y="94" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="600" fill="${textColor}" text-anchor="middle">Total Contributions</text>
+  <text x="${leftX}" y="128" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" font-weight="800" fill="${titleColor}" text-anchor="middle">${totalContributions.toLocaleString()}</text>
+  <text x="${leftX}" y="152" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="400" fill="${textColor}" text-anchor="middle">Past Year</text>
 
-      .label {
-        font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #${themeConfig.text_color};
-        opacity: 0.95;
-      }
+  <!-- Current Streak (Center Column) -->
+  <text x="${midX}" y="70" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="600" fill="${textColor}" text-anchor="middle">Current Streak</text>
+  <circle cx="${midX}" cy="128" r="${ringRadius}" fill="none" stroke="${ringColor}" stroke-width="${ringStroke}" opacity="0.18"/>
+  <circle cx="${midX}" cy="128" r="${ringRadius}" fill="none" stroke="${ringColor}" stroke-width="${ringStroke}" stroke-linecap="round" stroke-dasharray="${ringCircumference.toFixed(2)}" stroke-dashoffset="${ringDashOffset.toFixed(2)}" transform="rotate(-90 ${midX} 128)"/>
+  <text x="${midX}" y="138" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" font-weight="800" fill="${titleColor}" text-anchor="middle">${currentStreak}</text>
+  <text x="${midX}" y="160" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="400" fill="${textColor}" text-anchor="middle">days</text>
 
-      .value {
-        font: 800 30px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #${themeConfig.title_color};
-        letter-spacing: 0.2px;
-      }
-
-      .sub {
-        font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #${themeConfig.text_color};
-        opacity: 0.8;
-      }
-
-      .ring-bg { fill: none; stroke: #${themeConfig.ring_color}; opacity: 0.18; }
-      .ring { fill: none; stroke: #${themeConfig.ring_color}; stroke-linecap: round; animation: ringProgress 0.9s ease-out forwards; }
-    </style>
-  </defs>
-
-  <rect width="${width - 1}" height="${height - 1}" rx="6" x="0.5" y="0.5" fill="#${themeConfig.bg_color}" stroke="#${themeConfig.border_color}"/>
-
-  <!-- Card Title -->
-  <g transform="translate(25, 36)" class="animate" style="animation-delay: 0.05s">
-    <text class="title" x="0" y="0">GitHub Streak</text>
-  </g>
-
-  <!-- Total Contributions (Left) -->
-  <g transform="translate(${leftX}, 128)" class="animate" style="animation-delay: 0.12s">
-    <text class="label" text-anchor="middle" x="0" y="-34">Total Contributions</text>
-    <text class="value" text-anchor="middle" x="0" y="0">${totalContributions.toLocaleString()}</text>
-    <text class="sub" text-anchor="middle" x="0" y="24">Past Year</text>
-  </g>
-
-  <!-- Current Streak (Center) -->
-  <g transform="translate(${midX}, 128)">
-    <text class="label animate" style="animation-delay: 0.18s" text-anchor="middle" x="0" y="-58">Current Streak</text>
-
-    <circle class="ring-bg" cx="0" cy="0" r="${ringRadius}" stroke-width="${ringStroke}"/>
-    <circle class="ring" cx="0" cy="0" r="${ringRadius}" stroke-width="${ringStroke}"
-            stroke-dasharray="${ringCircumference}" stroke-dashoffset="${ringCircumference}"
-            transform="rotate(-90)"/>
-
-    <text class="value animate" style="animation-delay: 0.25s" text-anchor="middle" x="0" y="10">${currentStreak}</text>
-    <text class="sub animate" style="animation-delay: 0.28s" text-anchor="middle" x="0" y="32">days</text>
-  </g>
-
-  <!-- Longest Streak (Right) -->
-  <g transform="translate(${rightX}, 128)" class="animate" style="animation-delay: 0.32s">
-    <text class="label" text-anchor="middle" x="0" y="-34">Longest Streak</text>
-    <text class="value" text-anchor="middle" x="0" y="0">${longestStreak}</text>
-    <text class="sub" text-anchor="middle" x="0" y="24">days</text>
-  </g>
+  <!-- Longest Streak (Right Column) -->
+  <text x="${rightX}" y="94" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="600" fill="${textColor}" text-anchor="middle">Longest Streak</text>
+  <text x="${rightX}" y="128" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" font-weight="800" fill="${titleColor}" text-anchor="middle">${longestStreak}</text>
+  <text x="${rightX}" y="152" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="400" fill="${textColor}" text-anchor="middle">days</text>
 </svg>`;
 
 	return svg;

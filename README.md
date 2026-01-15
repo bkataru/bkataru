@@ -73,25 +73,25 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 <div align="center">
 
 <picture>
-  <source media="(max-width: 768px)" srcset="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=5">
-  <img width="49%" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=5" alt="Top Languages" style="max-width: 100%;" />
+  <source media="(max-width: 768px)" srcset="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=6">
+  <img width="49%" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=6" alt="Top Languages" style="max-width: 100%;" />
 </picture>
 <picture>
-  <source media="(max-width: 768px)" srcset="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=5">
-  <img width="49%" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=5" alt="GitHub Stats" style="max-width: 100%;" />
+  <source media="(max-width: 768px)" srcset="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=6">
+  <img width="49%" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=6" alt="GitHub Stats" style="max-width: 100%;" />
 </picture>
 
 </div>
 
 <div align="center">
 
-<img width="100%" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true&v=5" alt="GitHub Streak" style="max-width: 930px;" />
+<img width="100%" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true&v=6" alt="GitHub Streak" style="max-width: 930px;" />
 
 </div>
 
 <div align="center">
 
-<img width="100%" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true&v=5" alt="Activity Graph" style="max-width: 930px;" />
+<img width="100%" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true&v=6" alt="Activity Graph" style="max-width: 930px;" />
 
 </div>
 

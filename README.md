@@ -70,19 +70,30 @@ Check out [The Impulses Project](https://github.com/impulsesproject), my love le
 
 ---
 
-<p align="center">
-  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=3" alt="Top Languages" />
-  &nbsp;&nbsp;
-  <img width="400" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=3" alt="GitHub Stats" />
-</p>
+<div align="center">
 
-<p align="center">
-  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true&v=3" alt="GitHub Streak" />
-</p>
+<picture>
+  <source media="(max-width: 768px)" srcset="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=4">
+  <img width="49%" src="https://github.com/bkataru/bkataru/blob/main/top-langs.svg?raw=true&v=4" alt="Top Languages" style="max-width: 100%;" />
+</picture>
+<picture>
+  <source media="(max-width: 768px)" srcset="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=4">
+  <img width="49%" src="https://github.com/bkataru/bkataru/blob/main/stats.svg?raw=true&v=4" alt="GitHub Stats" style="max-width: 100%;" />
+</picture>
 
-<p align="center">
-  <img width="800" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true&v=3" alt="Activity Graph" />
-</p>
+</div>
+
+<div align="center">
+
+<img width="100%" src="https://github.com/bkataru/bkataru/blob/main/streak.svg?raw=true&v=4" alt="GitHub Streak" style="max-width: 930px;" />
+
+</div>
+
+<div align="center">
+
+<img width="100%" src="https://github.com/bkataru/bkataru/blob/main/activity-graph.svg?raw=true&v=4" alt="Activity Graph" style="max-width: 930px;" />
+
+</div>
 
 ---
 

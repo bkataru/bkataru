@@ -1,281 +1,78 @@
+<svg width="500" height="311" viewBox="0 0 500 311" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleId descId">
+  <title id="titleId">Most Used Languages</title>
+  <desc id="descId">Mathematica 80.15%, Python 8.65%, Jupyter Notebook 3.64%, HTML 3.08%, JavaScript 2.39%, Zig 1.32%, TypeScript 0.41%, CSS 0.36%</desc>
 
-      <svg
-        width="500"
-        height="311"
-        viewBox="0 0 500 311"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-labelledby="descId"
-      >
-        <title id="titleId"></title>
-        <desc id="descId"></desc>
-        <style>
-          .header {
-            font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #58a6ff;
-            animation: fadeInAnimation 0.8s ease-in-out forwards;
-          }
-          @supports(-moz-appearance: auto) {
-            /* Selector detects Firefox */
-            .header { font-size: 15.5px; }
-          }
-          
-    @keyframes slideInAnimation {
-      from {
-        width: 0;
-      }
-      to {
-        width: calc(100%-100px);
-      }
-    }
-    @keyframes growWidthAnimation {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-    .stat {
-      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #c9d1d9;
-    }
-    @supports(-moz-appearance: auto) {
-      /* Selector detects Firefox */
-      .stat { font-size:12px; }
-    }
-    .bold { font-weight: 700 }
-    .lang-name {
-      font: 400 11px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: #c9d1d9;
-    }
-    .stagger {
-      opacity: 0;
-      animation: fadeInAnimation 0.3s ease-in-out forwards;
-    }
-    #rect-mask rect{
-      animation: slideInAnimation 1s ease-in-out forwards;
-    }
-    .lang-progress{
-      animation: growWidthAnimation 0.6s ease-in-out forwards;
-    }
-    
+  <rect x="0.5" y="0.5" width="499" height="310" rx="4.5" fill="#0d1117" stroke="#30363d"/>
 
-          
-      /* Animations */
-      @keyframes scaleInAnimation {
-        from {
-          transform: translate(-5px, 5px) scale(0);
-        }
-        to {
-          transform: translate(-5px, 5px) scale(1);
-        }
-      }
-      @keyframes fadeInAnimation {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    
-          
-        </style>
+  <!-- Title -->
+  <text x="25" y="35" font-family="Segoe UI, Ubuntu, sans-serif" font-size="18" font-weight="600" fill="#58a6ff">Most Used Languages</text>
 
-        
-
-        <rect
-          data-testid="card-bg"
-          x="0.5"
-          y="0.5"
-          rx="4.5"
-          height="99%"
-          stroke="#30363d"
-          width="499"
-          fill="#0d1117"
-          stroke-opacity="1"
-        />
-
-        
-      <g
-        data-testid="card-title"
-        transform="translate(25, 35)"
-      >
-        <g transform="translate(0, 0)">
-      <text
-        x="0"
-        y="0"
-        class="header"
-        data-testid="header"
-      >Most Used Languages</text>
-    </g>
-      </g>
-    
-
-        <g
-          data-testid="main-card-body"
-          transform="translate(0, 55)"
-        >
-          
-    <svg data-testid="lang-items" x="25">
-      
-    <g transform="translate(0, 0)">
-      <g transform="translate(0, 0)">
-        <g transform="translate(0, 0)">
-    <g class="stagger" style="animation-delay: 450ms">
-      <circle cx="5" cy="6" r="5" fill="#dd1100" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Mathematica 80.15%
-      </text>
-    </g>
-  </g><g transform="translate(0, 32)">
-    <g class="stagger" style="animation-delay: 600ms">
-      <circle cx="5" cy="6" r="5" fill="#3572A5" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Python 8.65%
-      </text>
-    </g>
-  </g><g transform="translate(0, 64)">
-    <g class="stagger" style="animation-delay: 750ms">
-      <circle cx="5" cy="6" r="5" fill="#DA5B0B" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Jupyter Notebook 3.64%
-      </text>
-    </g>
-  </g><g transform="translate(0, 96)">
-    <g class="stagger" style="animation-delay: 900ms">
-      <circle cx="5" cy="6" r="5" fill="#e34c26" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        HTML 3.08%
-      </text>
-    </g>
-  </g><g transform="translate(0, 128)">
-    <g class="stagger" style="animation-delay: 1050ms">
-      <circle cx="5" cy="6" r="5" fill="#f1e05a" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        JavaScript 2.39%
-      </text>
-    </g>
-  </g><g transform="translate(0, 160)">
-    <g class="stagger" style="animation-delay: 1200ms">
-      <circle cx="5" cy="6" r="5" fill="#ec915c" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Zig 1.32%
-      </text>
-    </g>
-  </g><g transform="translate(0, 192)">
-    <g class="stagger" style="animation-delay: 1350ms">
-      <circle cx="5" cy="6" r="5" fill="#3178c6" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TypeScript 0.41%
-      </text>
-    </g>
-  </g><g transform="translate(0, 224)">
-    <g class="stagger" style="animation-delay: 1500ms">
-      <circle cx="5" cy="6" r="5" fill="#663399" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        CSS 0.36%
-      </text>
-    </g>
+  <!-- Language List -->
+  <!-- Mathematica -->
+  <g transform="translate(25, 55)">
+    <circle cx="5" cy="6" r="5" fill="#dd1100"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">Mathematica 80.15%</text>
   </g>
-      </g>
 
-      <g transform="translate(150, 3)">
-        <svg width="170" height="170">
-       <g class="stagger" style="animation-delay: 600ms">
-        <path
-          data-testid="lang-donut"
-          size="80.15"
-          d="M 31.271065118225913 66.98083086071726 A 56.67 56.67 0 1 0 85 28.33"
-          stroke="#dd1100"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 700ms">
-        <path
-          data-testid="lang-donut"
-          size="8.65"
-          d="M 48.3313386578596 41.792382900981245 A 56.67 56.67 0 0 0 31.271065118225913 66.98083086071726"
-          stroke="#3572A5"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 800ms">
-        <path
-          data-testid="lang-donut"
-          size="3.64"
-          d="M 59.08218624785805 34.60400977945486 A 56.67 56.67 0 0 0 48.3313386578596 41.792382900981245"
-          stroke="#DA5B0B"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 900ms">
-        <path
-          data-testid="lang-donut"
-          size="3.08"
-          d="M 69.25797247797033 30.560331838854303 A 56.67 56.67 0 0 0 59.08218624785805 34.60400977945486"
-          stroke="#e34c26"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 1000ms">
-        <path
-          data-testid="lang-donut"
-          size="2.39"
-          d="M 77.5795465432213 28.817923049287494 A 56.67 56.67 0 0 0 69.25797247797033 30.560331838854303"
-          stroke="#f1e05a"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 1100ms">
-        <path
-          data-testid="lang-donut"
-          size="1.32"
-          d="M 82.25934499853021 28.396310101169917 A 56.67 56.67 0 0 0 77.5795465432213 28.817923049287494"
-          stroke="#ec915c"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 1200ms">
-        <path
-          data-testid="lang-donut"
-          size="0.41"
-          d="M 83.71826410359094 28.3444967095706 A 56.67 56.67 0 0 0 82.25934499853021 28.396310101169917"
-          stroke="#3178c6"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      
-       <g class="stagger" style="animation-delay: 1300ms">
-        <path
-          data-testid="lang-donut"
-          size="0.36"
-          d="M 84.99999999999999 28.33 A 56.67 56.67 0 0 0 83.71826410359094 28.3444967095706"
-          stroke="#663399"
-          fill="none"
-          stroke-width="12">
-        </path>
-      </g>
-      </svg>
-      </g>
-    </g>
-  
-    </svg>
-  
-        </g>
-      </svg>
-    
+  <!-- Python -->
+  <g transform="translate(25, 87)">
+    <circle cx="5" cy="6" r="5" fill="#3572A5"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">Python 8.65%</text>
+  </g>
+
+  <!-- Jupyter Notebook -->
+  <g transform="translate(25, 119)">
+    <circle cx="5" cy="6" r="5" fill="#DA5B0B"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">Jupyter Notebook 3.64%</text>
+  </g>
+
+  <!-- HTML -->
+  <g transform="translate(25, 151)">
+    <circle cx="5" cy="6" r="5" fill="#e34c26"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">HTML 3.08%</text>
+  </g>
+
+  <!-- JavaScript -->
+  <g transform="translate(25, 183)">
+    <circle cx="5" cy="6" r="5" fill="#f1e05a"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">JavaScript 2.39%</text>
+  </g>
+
+  <!-- Zig -->
+  <g transform="translate(25, 215)">
+    <circle cx="5" cy="6" r="5" fill="#ec915c"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">Zig 1.32%</text>
+  </g>
+
+  <!-- TypeScript -->
+  <g transform="translate(25, 247)">
+    <circle cx="5" cy="6" r="5" fill="#3178c6"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">TypeScript 0.41%</text>
+  </g>
+
+  <!-- CSS -->
+  <g transform="translate(25, 279)">
+    <circle cx="5" cy="6" r="5" fill="#663399"/>
+    <text x="15" y="10" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#c9d1d9">CSS 0.36%</text>
+  </g>
+
+  <!-- Donut Chart -->
+  <g transform="translate(320, 165)">
+    <!-- Mathematica 80.15% -->
+    <path d="M 0 -70 A 70 70 0 1 1 -43.82 54.63" stroke="#dd1100" stroke-width="14" fill="none"/>
+    <!-- Python 8.65% -->
+    <path d="M -43.82 54.63 A 70 70 0 0 1 -65.01 -25.67" stroke="#3572A5" stroke-width="14" fill="none"/>
+    <!-- Jupyter Notebook 3.64% -->
+    <path d="M -65.01 -25.67 A 70 70 0 0 1 -49.50 -49.50" stroke="#DA5B0B" stroke-width="14" fill="none"/>
+    <!-- HTML 3.08% -->
+    <path d="M -49.50 -49.50 A 70 70 0 0 1 -30.78 -62.87" stroke="#e34c26" stroke-width="14" fill="none"/>
+    <!-- JavaScript 2.39% -->
+    <path d="M -30.78 -62.87 A 70 70 0 0 1 -13.07 -68.77" stroke="#f1e05a" stroke-width="14" fill="none"/>
+    <!-- Zig 1.32% -->
+    <path d="M -13.07 -68.77 A 70 70 0 0 1 -3.11 -69.93" stroke="#ec915c" stroke-width="14" fill="none"/>
+    <!-- TypeScript 0.41% -->
+    <path d="M -3.11 -69.93 A 70 70 0 0 1 -1.26 -69.99" stroke="#3178c6" stroke-width="14" fill="none"/>
+    <!-- CSS 0.36% -->
+    <path d="M -1.26 -69.99 A 70 70 0 0 1 0 -70" stroke="#663399" stroke-width="14" fill="none"/>
+  </g>
+</svg>

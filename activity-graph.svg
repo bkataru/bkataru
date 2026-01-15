@@ -1,165 +1,78 @@
+<svg width="930" height="300" viewBox="0 0 930 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="929" height="299" rx="5" fill="#0d1117" stroke="#30363d"/>
 
-    <svg
-        width="930"
-        height="300"
-        viewBox="0 0 930 300"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-            <rect xmlns="http://www.w3.org/2000/svg" data-testid="card_bg" id="cardBg"
-            x="0" y="0" rx="5" height="100%" stroke="#E4E2E2" fill-opacity="1"
-            width="100%" fill="#0D1117" stroke-opacity="1" style="stroke:#ffffff; stroke-width:1;"/>
+  <!-- Title -->
+  <text x="465" y="35" font-family="Segoe UI, Ubuntu, sans-serif" font-size="18" font-weight="600" fill="#58a6ff" text-anchor="middle">Baalateja Kataru's Contribution Graph</text>
 
-            <style>
-                body {
-                    font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-                }
-                .header {
-                    font: 600 20px 'Segoe UI', Ubuntu, Sans-Serif;
-                    text-align: center;
-                    color: #58A6FF;
-                    margin-top: 20px;
-                }
-                svg {
-                    font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-                    user-select: none;
-                }
-                
-    .ct-label {
-      fill: #58A6FF;
-      color: #58A6FF;
-      font-size: .75rem;
-      line-height: 1;
-    }
+  <!-- Y-axis labels -->
+  <text x="75" y="235" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="end">0</text>
+  <text x="75" y="197" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="end">25</text>
+  <text x="75" y="159" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="end">50</text>
+  <text x="75" y="121" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="end">75</text>
+  <text x="75" y="83" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="end">100</text>
 
-    .ct-grid-background,
-    .ct-line {
-      fill: none;
-    }
+  <!-- Y-axis title -->
+  <text x="25" y="155" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="middle" transform="rotate(-90 25 155)">Contributions</text>
 
-    .ct-chart-bar .ct-label,
-    .ct-chart-line .ct-label {
-      display: block;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-    }
+  <!-- X-axis title -->
+  <text x="465" y="285" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11" fill="#58a6ff" text-anchor="middle">Days</text>
 
-    .ct-label.ct-horizontal.ct-start {
-      -webkit-box-align: flex-end;
-      -webkit-align-items: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
-      -webkit-box-pack: flex-start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
-    }
+  <!-- Grid lines (horizontal) -->
+  <line x1="90" y1="230" x2="850" y2="230" stroke="#58a6ff" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="3"/>
+  <line x1="90" y1="192" x2="850" y2="192" stroke="#58a6ff" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="3"/>
+  <line x1="90" y1="154" x2="850" y2="154" stroke="#58a6ff" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="3"/>
+  <line x1="90" y1="116" x2="850" y2="116" stroke="#58a6ff" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="3"/>
+  <line x1="90" y1="78" x2="850" y2="78" stroke="#58a6ff" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="3"/>
 
-    .ct-label.ct-horizontal.ct-end {
-      -webkit-box-align: flex-start;
-      -webkit-align-items: flex-start;
-      -ms-flex-align: flex-start;
-      align-items: flex-start;
-      -webkit-box-pack: flex-start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
-    }
+  <!-- Area fill -->
+  <path d="M90,200 L115,203 L140,175 L165,216 L190,192 L215,198 L240,213 L265,225 L290,222 L315,219 L340,224 L365,227 L390,221 L415,227 L440,230 L465,229 L490,230 L515,230 L540,204 L565,225 L590,208 L615,219 L640,187 L665,214 L690,225 L715,230 L740,230 L765,224 L790,150 L815,104 L840,169 L840,230 L90,230 Z" fill="#1F6FEB" fill-opacity="0.1"/>
 
-    .ct-label.ct-vertical.ct-start {
-      -webkit-box-align: flex-end;
-      -webkit-align-items: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
-      -webkit-box-pack: flex-end;
-      -webkit-justify-content: flex-end;
-      -ms-flex-pack: flex-end;
-      justify-content: flex-end;
-      text-align: right;
-      text-anchor: end;
-    }
+  <!-- Line chart -->
+  <path d="M90,200 L115,203 L140,175 L165,216 L190,192 L215,198 L240,213 L265,225 L290,222 L315,219 L340,224 L365,227 L390,221 L415,227 L440,230 L465,229 L490,230 L515,230 L540,204 L565,225 L590,208 L615,219 L640,187 L665,214 L690,225 L715,230 L740,230 L765,224 L790,150 L815,104 L840,169" stroke="#1F6FEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
-    .ct-label.ct-vertical.ct-end {
-      -webkit-box-align: flex-end;
-      -webkit-align-items: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
-      -webkit-box-pack: flex-start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
-    }
+  <!-- Data points -->
+  <circle cx="90" cy="200" r="4" fill="#58a6ff"/>
+  <circle cx="115" cy="203" r="4" fill="#58a6ff"/>
+  <circle cx="140" cy="175" r="4" fill="#58a6ff"/>
+  <circle cx="165" cy="216" r="4" fill="#58a6ff"/>
+  <circle cx="190" cy="192" r="4" fill="#58a6ff"/>
+  <circle cx="215" cy="198" r="4" fill="#58a6ff"/>
+  <circle cx="240" cy="213" r="4" fill="#58a6ff"/>
+  <circle cx="265" cy="225" r="4" fill="#58a6ff"/>
+  <circle cx="290" cy="222" r="4" fill="#58a6ff"/>
+  <circle cx="315" cy="219" r="4" fill="#58a6ff"/>
+  <circle cx="340" cy="224" r="4" fill="#58a6ff"/>
+  <circle cx="365" cy="227" r="4" fill="#58a6ff"/>
+  <circle cx="390" cy="221" r="4" fill="#58a6ff"/>
+  <circle cx="415" cy="227" r="4" fill="#58a6ff"/>
+  <circle cx="440" cy="230" r="4" fill="#58a6ff"/>
+  <circle cx="465" cy="229" r="4" fill="#58a6ff"/>
+  <circle cx="490" cy="230" r="4" fill="#58a6ff"/>
+  <circle cx="515" cy="230" r="4" fill="#58a6ff"/>
+  <circle cx="540" cy="204" r="4" fill="#58a6ff"/>
+  <circle cx="565" cy="225" r="4" fill="#58a6ff"/>
+  <circle cx="590" cy="208" r="4" fill="#58a6ff"/>
+  <circle cx="615" cy="219" r="4" fill="#58a6ff"/>
+  <circle cx="640" cy="187" r="4" fill="#58a6ff"/>
+  <circle cx="665" cy="214" r="4" fill="#58a6ff"/>
+  <circle cx="690" cy="225" r="4" fill="#58a6ff"/>
+  <circle cx="715" cy="230" r="4" fill="#58a6ff"/>
+  <circle cx="740" cy="230" r="4" fill="#58a6ff"/>
+  <circle cx="765" cy="224" r="4" fill="#58a6ff"/>
+  <circle cx="790" cy="150" r="4" fill="#58a6ff"/>
+  <circle cx="815" cy="104" r="4" fill="#58a6ff"/>
+  <circle cx="840" cy="169" r="4" fill="#58a6ff"/>
 
-    .ct-grid {
-      stroke: #58A6FF;
-      stroke-width: 1px;
-      stroke-opacity: 0.3;
-      stroke-dasharray: 2px;
-    }
-
-    .ct-point {
-      stroke-width: 10px;
-      stroke-linecap: round;
-      stroke: #58A6FF;
-      animation: blink 1s ease-in-out forwards;
-    }
-
-    .ct-line {
-      stroke-width: 4px;
-      stroke-dasharray: 5000;
-      stroke-dashoffset: 5000;
-      stroke: #1F6FEB;
-      animation: dash 5s ease-in-out forwards;
-    }
-
-    .ct-area {
-      stroke: none;
-      fill-opacity: 0.1;
-    }
-
-    .ct-series-a .ct-area,
-    .ct-series-a .ct-slice-pie {
-      fill: #1F6FEB;
-    }
-
-    .ct-label .ct-horizontal {
-      transform: rotate(-90deg)
-    }
-    
-                
-        @keyframes blink {
-            from {
-                opacity: 0;
-                transform:translateX(-20px); 
-            }
-            to {
-                opacity:1;
-                transform: translateX(0);
-            }
-        }
-    
-                
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-    
-    
-            </style>
-
-            <foreignObject x="0" y="0" width="930" height="50">
-                <h1 xmlns="http://www.w3.org/1999/xhtml" class="header">
-                    Baalateja Kataru's Contribution Graph
-                </h1>
-            </foreignObject>
-            <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="930" height="300" class="ct-chart-line"><g class="ct-grids"><line x1="90" x2="90" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="116.33333333333333" x2="116.33333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="142.66666666666666" x2="142.66666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="169" x2="169" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="195.33333333333331" x2="195.33333333333331" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="221.66666666666666" x2="221.66666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="248" x2="248" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="274.3333333333333" x2="274.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="300.66666666666663" x2="300.66666666666663" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="327" x2="327" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="353.3333333333333" x2="353.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="379.66666666666663" x2="379.66666666666663" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="406" x2="406" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="432.3333333333333" x2="432.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="458.66666666666663" x2="458.66666666666663" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="485" x2="485" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="511.3333333333333" x2="511.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="537.6666666666666" x2="537.6666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="564" x2="564" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="590.3333333333333" x2="590.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="616.6666666666666" x2="616.6666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="643" x2="643" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="669.3333333333333" x2="669.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="695.6666666666666" x2="695.6666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="722" x2="722" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="748.3333333333333" x2="748.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="774.6666666666666" x2="774.6666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="801" x2="801" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="827.3333333333333" x2="827.3333333333333" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="853.6666666666666" x2="853.6666666666666" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line x1="880" x2="880" y1="80" y2="230" class="ct-grid ct-horizontal"></line><line y1="230" y2="230" x1="90" x2="880" class="ct-grid ct-vertical"></line><line y1="196.66666666666666" y2="196.66666666666666" x1="90" x2="880" class="ct-grid ct-vertical"></line><line y1="163.33333333333331" y2="163.33333333333331" x1="90" x2="880" class="ct-grid ct-vertical"></line><line y1="130" y2="130" x1="90" x2="880" class="ct-grid ct-vertical"></line><line y1="96.66666666666666" y2="96.66666666666666" x1="90" x2="880" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M90,230L90,196.667C98.778,197.778,107.556,200,116.333,200C125.111,200,133.889,170,142.667,170C151.444,170,160.222,215,169,215C177.778,215,186.556,188.333,195.333,188.333C204.111,188.333,212.889,191.825,221.667,195C230.444,198.175,239.222,206.728,248,211.667C256.778,216.605,265.556,225,274.333,225C283.111,225,291.889,222.778,300.667,221.667C309.444,220.556,318.222,218.333,327,218.333C335.778,218.333,344.556,222,353.333,223.333C362.111,224.667,370.889,226.667,379.667,226.667C388.444,226.667,397.222,220,406,220C414.778,220,423.556,225.185,432.333,226.667C441.111,228.148,449.889,230,458.667,230C467.444,230,476.222,228.333,485,228.333C493.778,228.333,502.556,230,511.333,230C520.111,230,528.889,230,537.667,230C546.444,230,555.222,201.667,564,201.667C572.778,201.667,581.556,225,590.333,225C599.111,225,607.889,206.667,616.667,206.667C625.444,206.667,634.222,218.333,643,218.333C651.778,218.333,660.556,183.333,669.333,183.333C678.111,183.333,686.889,207.733,695.667,213.333C704.444,218.933,713.222,222.667,722,225C730.778,227.333,739.556,230,748.333,230C757.111,230,765.889,230,774.667,230C783.444,230,792.222,227.442,801,223.333C809.778,219.224,818.556,162.342,827.333,141.667C836.111,120.992,844.889,91.667,853.667,91.667C862.444,91.667,871.222,139.444,880,163.333L880,230Z" class="ct-area"></path><path d="M90,196.667C98.778,197.778,107.556,200,116.333,200C125.111,200,133.889,170,142.667,170C151.444,170,160.222,215,169,215C177.778,215,186.556,188.333,195.333,188.333C204.111,188.333,212.889,191.825,221.667,195C230.444,198.175,239.222,206.728,248,211.667C256.778,216.605,265.556,225,274.333,225C283.111,225,291.889,222.778,300.667,221.667C309.444,220.556,318.222,218.333,327,218.333C335.778,218.333,344.556,222,353.333,223.333C362.111,224.667,370.889,226.667,379.667,226.667C388.444,226.667,397.222,220,406,220C414.778,220,423.556,225.185,432.333,226.667C441.111,228.148,449.889,230,458.667,230C467.444,230,476.222,228.333,485,228.333C493.778,228.333,502.556,230,511.333,230C520.111,230,528.889,230,537.667,230C546.444,230,555.222,201.667,564,201.667C572.778,201.667,581.556,225,590.333,225C599.111,225,607.889,206.667,616.667,206.667C625.444,206.667,634.222,218.333,643,218.333C651.778,218.333,660.556,183.333,669.333,183.333C678.111,183.333,686.889,207.733,695.667,213.333C704.444,218.933,713.222,222.667,722,225C730.778,227.333,739.556,230,748.333,230C757.111,230,765.889,230,774.667,230C783.444,230,792.222,227.442,801,223.333C809.778,219.224,818.556,162.342,827.333,141.667C836.111,120.992,844.889,91.667,853.667,91.667C862.444,91.667,871.222,139.444,880,163.333" class="ct-line"></path><line x1="90" y1="196.66666666666666" x2="90.01" y2="196.66666666666666" class="ct-point" ct:value="20"></line><line x1="116.33333333333333" y1="200" x2="116.34333333333333" y2="200" class="ct-point" ct:value="18"></line><line x1="142.66666666666666" y1="170" x2="142.67666666666665" y2="170" class="ct-point" ct:value="36"></line><line x1="169" y1="215" x2="169.01" y2="215" class="ct-point" ct:value="9"></line><line x1="195.33333333333331" y1="188.33333333333334" x2="195.3433333333333" y2="188.33333333333334" class="ct-point" ct:value="25"></line><line x1="221.66666666666666" y1="195" x2="221.67666666666665" y2="195" class="ct-point" ct:value="21"></line><line x1="248" y1="211.66666666666666" x2="248.01" y2="211.66666666666666" class="ct-point" ct:value="11"></line><line x1="274.3333333333333" y1="225" x2="274.3433333333333" y2="225" class="ct-point" ct:value="3"></line><line x1="300.66666666666663" y1="221.66666666666666" x2="300.6766666666666" y2="221.66666666666666" class="ct-point" ct:value="5"></line><line x1="327" y1="218.33333333333334" x2="327.01" y2="218.33333333333334" class="ct-point" ct:value="7"></line><line x1="353.3333333333333" y1="223.33333333333334" x2="353.3433333333333" y2="223.33333333333334" class="ct-point" ct:value="4"></line><line x1="379.66666666666663" y1="226.66666666666666" x2="379.6766666666666" y2="226.66666666666666" class="ct-point" ct:value="2"></line><line x1="406" y1="220" x2="406.01" y2="220" class="ct-point" ct:value="6"></line><line x1="432.3333333333333" y1="226.66666666666666" x2="432.3433333333333" y2="226.66666666666666" class="ct-point" ct:value="2"></line><line x1="458.66666666666663" y1="230" x2="458.6766666666666" y2="230" class="ct-point" ct:value="0"></line><line x1="485" y1="228.33333333333334" x2="485.01" y2="228.33333333333334" class="ct-point" ct:value="1"></line><line x1="511.3333333333333" y1="230" x2="511.3433333333333" y2="230" class="ct-point" ct:value="0"></line><line x1="537.6666666666666" y1="230" x2="537.6766666666666" y2="230" class="ct-point" ct:value="0"></line><line x1="564" y1="201.66666666666666" x2="564.01" y2="201.66666666666666" class="ct-point" ct:value="17"></line><line x1="590.3333333333333" y1="225" x2="590.3433333333332" y2="225" class="ct-point" ct:value="3"></line><line x1="616.6666666666666" y1="206.66666666666666" x2="616.6766666666666" y2="206.66666666666666" class="ct-point" ct:value="14"></line><line x1="643" y1="218.33333333333334" x2="643.01" y2="218.33333333333334" class="ct-point" ct:value="7"></line><line x1="669.3333333333333" y1="183.33333333333334" x2="669.3433333333332" y2="183.33333333333334" class="ct-point" ct:value="28"></line><line x1="695.6666666666666" y1="213.33333333333334" x2="695.6766666666666" y2="213.33333333333334" class="ct-point" ct:value="10"></line><line x1="722" y1="225" x2="722.01" y2="225" class="ct-point" ct:value="3"></line><line x1="748.3333333333333" y1="230" x2="748.3433333333332" y2="230" class="ct-point" ct:value="0"></line><line x1="774.6666666666666" y1="230" x2="774.6766666666666" y2="230" class="ct-point" ct:value="0"></line><line x1="801" y1="223.33333333333334" x2="801.01" y2="223.33333333333334" class="ct-point" ct:value="4"></line><line x1="827.3333333333333" y1="141.66666666666669" x2="827.3433333333332" y2="141.66666666666669" class="ct-point" ct:value="53"></line><line x1="853.6666666666666" y1="91.66666666666666" x2="853.6766666666666" y2="91.66666666666666" class="ct-point" ct:value="83"></line><line x1="880" y1="163.33333333333331" x2="880.01" y2="163.33333333333331" class="ct-point" ct:value="40"></line></g></g><g class="ct-labels"><text x="85.5" y="250" width="26.333333333333332" height="40" class="ct-label ct-horizontal ct-end">16</text><text x="111.83333333333333" y="250" width="26.333333333333332" height="40" class="ct-label ct-horizontal ct-end">17</text><text x="138.16666666666666" y="250" width="26.333333333333336" height="40" class="ct-label ct-horizontal ct-end">18</text><text x="164.5" y="250" width="26.33333333333333" height="40" class="ct-label ct-horizontal ct-end">19</text><text x="190.83333333333331" y="250" width="26.33333333333333" height="40" class="ct-label ct-horizontal ct-end">20</text><text x="217.16666666666666" y="250" width="26.333333333333343" height="40" class="ct-label ct-horizontal ct-end">21</text><text x="243.5" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">22</text><text x="269.8333333333333" y="250" width="26.333333333333343" height="40" class="ct-label ct-horizontal ct-end">23</text><text x="296.16666666666663" y="250" width="26.333333333333343" height="40" class="ct-label ct-horizontal ct-end">24</text><text x="322.5" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">25</text><text x="348.8333333333333" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">26</text><text x="375.16666666666663" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">27</text><text x="401.5" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">28</text><text x="427.8333333333333" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">29</text><text x="454.16666666666663" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">30</text><text x="480.5" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">31</text><text x="506.8333333333333" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">1</text><text x="533.1666666666666" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">2</text><text x="559.5" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">3</text><text x="585.8333333333333" y="250" width="26.333333333333314" height="40" class="ct-label ct-horizontal ct-end">4</text><text x="612.1666666666666" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">5</text><text x="638.5" y="250" width="26.333333333333258" height="40" class="ct-label ct-horizontal ct-end">6</text><text x="664.8333333333333" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">7</text><text x="691.1666666666666" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">8</text><text x="717.5" y="250" width="26.333333333333258" height="40" class="ct-label ct-horizontal ct-end">9</text><text x="743.8333333333333" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">10</text><text x="770.1666666666666" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">11</text><text x="796.5" y="250" width="26.333333333333258" height="40" class="ct-label ct-horizontal ct-end">12</text><text x="822.8333333333333" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">13</text><text x="849.1666666666666" y="250" width="26.33333333333337" height="40" class="ct-label ct-horizontal ct-end">14</text><text x="875.5" y="250" width="30" height="40" class="ct-label ct-horizontal ct-end">15</text><text y="234.5" x="80" height="33.333333333333336" width="60" class="ct-label ct-vertical ct-start">0</text><text y="201.16666666666666" x="80" height="33.333333333333336" width="60" class="ct-label ct-vertical ct-start">20</text><text y="167.83333333333331" x="80" height="33.33333333333333" width="60" class="ct-label ct-vertical ct-start">40</text><text y="134.5" x="80" height="33.33333333333334" width="60" class="ct-label ct-vertical ct-start">60</text><text y="101.16666666666666" x="80" height="30" width="60" class="ct-label ct-vertical ct-start">80</text></g><text class="ct-axis-title ct-label" x="485" y="280" dominant-baseline="text-after-edge" text-anchor="middle">Days</text><text class="ct-axis-title ct-label" x="20" y="155" transform="rotate(-90, 20, 155)" dominant-baseline="hanging" text-anchor="middle">Contributions</text></svg>
-    </svg>
+  <!-- X-axis date labels (sample) -->
+  <text x="90" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">16</text>
+  <text x="165" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">19</text>
+  <text x="240" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">22</text>
+  <text x="315" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">25</text>
+  <text x="390" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">28</text>
+  <text x="465" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">1</text>
+  <text x="540" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">4</text>
+  <text x="615" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">7</text>
+  <text x="690" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">10</text>
+  <text x="765" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">13</text>
+  <text x="840" y="250" font-family="Segoe UI, Ubuntu, sans-serif" font-size="9" fill="#58a6ff" text-anchor="middle">15</text>
+</svg>

@@ -1,76 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="930" height="210" viewBox="0 0 930 210">
-  <defs>
-    <style>
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-6px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes ringProgress {
-        from { stroke-dashoffset: 276.46015351590177; }
-        to { stroke-dashoffset: 235.50309373576818; }
-      }
+  <rect x="0.5" y="0.5" width="929" height="209" rx="6" fill="#0d1117" stroke="#30363d"/>
 
-      .animate { animation: fadeIn 0.35s ease-out forwards; opacity: 0; }
+  <!-- Title -->
+  <text x="25" y="36" font-family="Segoe UI, Ubuntu, sans-serif" font-size="18" font-weight="600" fill="#58a6ff">GitHub Streak</text>
 
-      .title {
-        font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #58a6ff;
-      }
+  <!-- Total Contributions (Left Column) -->
+  <text x="140" y="94" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="600" fill="#c9d1d9" text-anchor="middle">Total Contributions</text>
+  <text x="140" y="128" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" font-weight="800" fill="#58a6ff" text-anchor="middle">1,190</text>
+  <text x="140" y="152" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="400" fill="#c9d1d9" text-anchor="middle">Past Year</text>
 
-      .label {
-        font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #c9d1d9;
-        opacity: 0.95;
-      }
+  <!-- Current Streak (Center Column) -->
+  <text x="465" y="70" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="600" fill="#c9d1d9" text-anchor="middle">Current Streak</text>
+  <circle cx="465" cy="128" r="44" fill="none" stroke="#58a6ff" stroke-width="6" opacity="0.18"/>
+  <circle cx="465" cy="128" r="44" fill="none" stroke="#58a6ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="235.50" transform="rotate(-90 465 128)"/>
+  <text x="465" y="138" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" font-weight="800" fill="#58a6ff" text-anchor="middle">4</text>
+  <text x="465" y="160" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="400" fill="#c9d1d9" text-anchor="middle">days</text>
 
-      .value {
-        font: 800 30px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #58a6ff;
-        letter-spacing: 0.2px;
-      }
-
-      .sub {
-        font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #c9d1d9;
-        opacity: 0.8;
-      }
-
-      .ring-bg { fill: none; stroke: #58a6ff; opacity: 0.18; }
-      .ring { fill: none; stroke: #58a6ff; stroke-linecap: round; animation: ringProgress 0.9s ease-out forwards; }
-    </style>
-  </defs>
-
-  <rect width="929" height="209" rx="6" x="0.5" y="0.5" fill="#0d1117" stroke="#30363d"/>
-
-  <!-- Card Title -->
-  <g transform="translate(25, 36)" class="animate" style="animation-delay: 0.05s">
-    <text class="title" x="0" y="0">GitHub Streak</text>
-  </g>
-
-  <!-- Total Contributions (Left) -->
-  <g transform="translate(140, 128)" class="animate" style="animation-delay: 0.12s">
-    <text class="label" text-anchor="middle" x="0" y="-34">Total Contributions</text>
-    <text class="value" text-anchor="middle" x="0" y="0">1,190</text>
-    <text class="sub" text-anchor="middle" x="0" y="24">Past Year</text>
-  </g>
-
-  <!-- Current Streak (Center) -->
-  <g transform="translate(465, 128)">
-    <text class="label animate" style="animation-delay: 0.18s" text-anchor="middle" x="0" y="-58">Current Streak</text>
-
-    <circle class="ring-bg" cx="0" cy="0" r="44" stroke-width="6"/>
-    <circle class="ring" cx="0" cy="0" r="44" stroke-width="6"
-            stroke-dasharray="276.46015351590177" stroke-dashoffset="276.46015351590177"
-            transform="rotate(-90)"/>
-
-    <text class="value animate" style="animation-delay: 0.25s" text-anchor="middle" x="0" y="10">4</text>
-    <text class="sub animate" style="animation-delay: 0.28s" text-anchor="middle" x="0" y="32">days</text>
-  </g>
-
-  <!-- Longest Streak (Right) -->
-  <g transform="translate(790, 128)" class="animate" style="animation-delay: 0.32s">
-    <text class="label" text-anchor="middle" x="0" y="-34">Longest Streak</text>
-    <text class="value" text-anchor="middle" x="0" y="0">27</text>
-    <text class="sub" text-anchor="middle" x="0" y="24">days</text>
-  </g>
+  <!-- Longest Streak (Right Column) -->
+  <text x="790" y="94" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="600" fill="#c9d1d9" text-anchor="middle">Longest Streak</text>
+  <text x="790" y="128" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" font-weight="800" fill="#58a6ff" text-anchor="middle">27</text>
+  <text x="790" y="152" font-family="Segoe UI, Ubuntu, sans-serif" font-size="12" font-weight="400" fill="#c9d1d9" text-anchor="middle">days</text>
 </svg>

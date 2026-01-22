@@ -62,7 +62,9 @@ Find me tinkering at
 - [bkataru's playgrounds](https://github.com/bkataru-playgrounds)
 - [bkataru's forks](https://github.com/bkataru-forks)
 
-Check out [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering.
+Check out:
+- [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering
+- the [planckeon labs](https://planckeon.github.io/) venture, what I consider my magnum opus 😊
 
 <div align="center"> 
   <img src="https://github.com/bkataru/bkataru/blob/main/kalki.jpg?raw=true" alt="kalki" /> 

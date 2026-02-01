@@ -26,3 +26,6 @@ npm-debug.log*
 
 # Lockfiles (optional, can be committed if preferred)
 # bun.lock
+
+# Session files
+session-*.md

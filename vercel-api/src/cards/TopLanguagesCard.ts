@@ -29,7 +29,7 @@ const MAXIMUM_LANGS_COUNT = 20;
 
 const NORMAL_LAYOUT_DEFAULT_LANGS_COUNT = 5;
 const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 6;
-const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 10;
+const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 15;
 
 /**
  * Convert degrees to radians.
@@ -65,13 +65,14 @@ function clampValue(value: number, min: number, max: number): number {
 }
 
 /**
- * Trim top languages and calculate total size.
+ * Trim top languages and calculate total score.
+ * Uses normalized score (sqrt(bytes) * log(repos)) for sorting and percentages.
  */
 function trimTopLanguages(
   topLangs: LanguageData,
   langsCount: number,
   hide?: string[]
-): { langs: Language[]; totalLanguageSize: number } {
+): { langs: Language[]; totalScore: number } {
   let langs = Object.values(topLangs);
   const langsToHide: Record<string, boolean> = {};
 
@@ -83,14 +84,16 @@ function trimTopLanguages(
     });
   }
 
+  // Sort by normalized score (already computed in fetcher)
   langs = langs
-    .sort((a, b) => b.size - a.size)
+    .sort((a, b) => (b.score || 0) - (a.score || 0))
     .filter((lang) => !langsToHide[lang.name.toLowerCase().trim()])
     .slice(0, clampedCount);
 
-  const totalLanguageSize = langs.reduce((acc, curr) => acc + curr.size, 0);
+  // Total normalized score for percentage calculation
+  const totalScore = langs.reduce((acc, curr) => acc + (curr.score || 0), 0);
 
-  return { langs, totalLanguageSize };
+  return { langs, totalScore };
 }
 
 /**
@@ -171,15 +174,16 @@ function formatBytes(bytes: number): string {
 
 /**
  * Create compact language node.
+ * Uses normalized score for percentage display.
  */
 function createCompactLangNode(
   lang: Language,
-  totalSize: number,
+  totalScore: number,
   index: number,
   showRepoCount: boolean = false
 ): string {
-  const percentages = (lang.size / totalSize) * 100;
-  const displayValue = `${percentages.toFixed(1)}%`;
+  const percentage = ((lang.score || 0) / totalScore) * 100;
+  const displayValue = `${percentage.toFixed(1)}%`;
   const repoInfo = showRepoCount && lang.count > 0 ? ` (${lang.count} repo${lang.count !== 1 ? "s" : ""})` : "";
   const staggerDelay = (index + 3) * 150;
   const color = lang.color || DEFAULT_LANG_COLOR;
@@ -199,23 +203,24 @@ function createCompactLangNode(
  */
 function createDonutLanguagesNode(
   langs: Language[],
-  totalSize: number,
+  totalScore: number,
   showRepoCount: boolean = false
 ): string {
   return langs
     .map((lang, index) => {
       const y = index * 32;
-      return `<g transform="translate(0, ${y})">${createCompactLangNode(lang, totalSize, index, showRepoCount)}</g>`;
+      return `<g transform="translate(0, ${y})">${createCompactLangNode(lang, totalScore, index, showRepoCount)}</g>`;
     })
     .join("");
 }
 
 /**
  * Render donut layout.
+ * Uses normalized scores for segment sizes.
  */
 function renderDonutLayout(
   langs: Language[],
-  totalLanguageSize: number,
+  totalScore: number,
   showRepoCount: boolean = false
 ): string {
   const donutSize = 170;
@@ -225,8 +230,9 @@ function renderDonutLayout(
   const strokeWidth = 12;
 
   const colors = langs.map((lang) => lang.color || DEFAULT_LANG_COLOR);
+  // Use normalized scores for donut segment sizes
   const langsPercents = langs.map((lang) =>
-    parseFloat(((lang.size / totalLanguageSize) * 100).toFixed(2))
+    parseFloat((((lang.score || 0) / totalScore) * 100).toFixed(2))
   );
 
   const langPaths = createDonutPaths(centerX, centerY, radius, langsPercents);
@@ -264,7 +270,7 @@ function renderDonutLayout(
   return `
     <g transform="translate(0, 0)">
       <g transform="translate(0, 0)">
-        ${createDonutLanguagesNode(langs, totalLanguageSize, showRepoCount)}
+        ${createDonutLanguagesNode(langs, totalScore, showRepoCount)}
       </g>
       <g transform="translate(${donutXOffset}, ${verticalOffset})">
         ${donut}
@@ -275,11 +281,12 @@ function renderDonutLayout(
 
 /**
  * Render normal layout with progress bars.
+ * Uses normalized scores for bar widths.
  */
 function renderNormalLayout(
   langs: Language[],
   width: number,
-  totalLanguageSize: number
+  totalScore: number
 ): string {
   const nodes = langs.map((lang, index) => {
     const staggerDelay = (index + 3) * 150;
@@ -287,7 +294,7 @@ function renderNormalLayout(
     const progressTextX = width - paddingRight + 10;
     const progressWidth = width - paddingRight;
 
-    const progress = (lang.size / totalLanguageSize) * 100;
+    const progress = ((lang.score || 0) / totalScore) * 100;
     const displayValue = `${progress.toFixed(2)}%`;
     const color = lang.color || DEFAULT_LANG_COLOR;
 
@@ -395,14 +402,12 @@ export function renderTopLanguages(
   const bgColor = `#${themeColors.bg_color}`;
   const borderColor = `#${themeColors.border_color}`;
 
-  const { langs, totalLanguageSize } = trimTopLanguages(
+  const { langs, totalScore } = trimTopLanguages(
     topLangs,
     langs_count,
     hide
   );
 
-  // Use provided total_size if available (includes hidden languages), otherwise use visible total
-  const displayTotalSize = total_size ?? totalLanguageSize;
   const showRepoCount = total_repos !== undefined && total_repos > 0;
 
   let width = card_width
@@ -424,11 +429,11 @@ export function renderTopLanguages(
     height = calculateDonutLayoutHeight(langs.length) + subtitleHeight;
     // Add extra width to accommodate repo counts in legend
     width = showRepoCount ? width + 100 : width + 50;
-    finalLayout = renderDonutLayout(langs, totalLanguageSize, showRepoCount);
+    finalLayout = renderDonutLayout(langs, totalScore, showRepoCount);
   } else {
     // Normal layout
     height = calculateNormalLayoutHeight(langs.length) + subtitleHeight;
-    finalLayout = renderNormalLayout(langs, width, totalLanguageSize);
+    finalLayout = renderNormalLayout(langs, width, totalScore);
   }
 
   const cssStyles = getStyles(textColor, disable_animations);

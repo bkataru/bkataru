@@ -29,8 +29,9 @@ export interface UserStats {
 export interface Language {
   name: string;
   color: string;
-  size: number;
-  count: number;
+  size: number;       // Raw bytes
+  count: number;      // Number of repos using this language
+  score?: number;     // Normalized score: sqrt(size) * log(count + 1)
 }
 
 export type LanguageData = Record<string, Language>;

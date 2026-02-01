@@ -163,9 +163,15 @@ export async function fetchTopLanguages(
   // Total unique languages
   const totalLanguages = languageMap.size;
 
-  // Convert map to sorted object (sorted by size, descending)
+  // Compute normalized scores: sqrt(size) * log(count + 1)
+  // This balances raw byte count with repo count, reducing outlier impact
+  for (const lang of languageMap.values()) {
+    lang.score = Math.sqrt(lang.size) * Math.log(lang.count + 1);
+  }
+
+  // Convert map to sorted object (sorted by normalized score, descending)
   const sortedEntries = Array.from(languageMap.entries()).sort(
-    ([, a], [, b]) => b.size - a.size
+    ([, a], [, b]) => (b.score || 0) - (a.score || 0)
   );
 
   const languages: LanguageData = {};

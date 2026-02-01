@@ -8,13 +8,13 @@
 export {
   renderStatsCard,
   type StatsCardOptions,
-} from "./StatsCard";
+} from "./StatsCard.js";
 
 // Top Languages Card
 export {
   renderTopLanguages,
   type TopLangsOptions,
-} from "./TopLanguagesCard";
+} from "./TopLanguagesCard.js";
 
 // Streak Card
 export {
@@ -22,10 +22,10 @@ export {
   calculateStreaks,
   type StreakCardOptions,
   type StreakData,
-} from "./StreakCard";
+} from "./StreakCard.js";
 
 // Activity Graph Card
 export {
   renderActivityGraph,
   type GraphCardOptions,
-} from "./GraphCard";
+} from "./GraphCard.js";

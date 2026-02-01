@@ -4,8 +4,8 @@
  * Default layout is 'donut' for visual appeal.
  */
 
-import { getTheme } from "../themes";
-import { LanguageData, Language } from "../types";
+import { getTheme } from "../themes/index.js";
+import { LanguageData, Language } from "../types/index.js";
 
 export interface TopLangsOptions {
   theme?: string;

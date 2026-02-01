@@ -3,9 +3,9 @@
  * Renders an SVG card showing user's GitHub statistics.
  */
 
-import { Theme, getTheme } from "../themes";
-import { UserStats } from "../types";
-import { kFormatter } from "../common/fmt";
+import { Theme, getTheme } from "../themes/index.js";
+import { UserStats } from "../types/index.js";
+import { kFormatter } from "../common/fmt.js";
 
 export interface StatsCardOptions {
   theme?: string;

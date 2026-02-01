@@ -6,8 +6,8 @@
  * For the node-chartist version, see the vendor's github-readme-activity-graph.
  */
 
-import { getTheme } from "../themes";
-import { ContributionData, ContributionDay } from "../types";
+import { getTheme } from "../themes/index.js";
+import { ContributionData, ContributionDay } from "../types/index.js";
 
 export interface GraphCardOptions {
   theme?: string;

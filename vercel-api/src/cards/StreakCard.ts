@@ -4,7 +4,7 @@
  * Ported from scripts/generate_widgets.ts
  */
 
-import { getTheme } from "../themes";
+import { getTheme } from "../themes/index.js";
 
 export interface StreakCardOptions {
   theme?: string;

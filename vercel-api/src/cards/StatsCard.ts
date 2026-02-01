@@ -319,10 +319,10 @@ export function renderStatsCard(
     disable_animations
   );
 
-  // Create stat text nodes
+  // Create stat text nodes - each node is wrapped in a transform for vertical positioning
   const statNodes = statItems
-    .map((stat, index) =>
-      createTextNode(
+    .map((stat, index) => {
+      const node = createTextNode(
         stat.icon,
         stat.label,
         stat.value,
@@ -331,8 +331,9 @@ export function renderStatsCard(
         show_icons,
         text_bold,
         stat.unitSymbol
-      )
-    )
+      );
+      return `<g transform="translate(0, ${index * lheight})">${node}</g>`;
+    })
     .join("");
 
   // Render rank circle
@@ -370,13 +371,7 @@ export function renderStatsCard(
   </g>
   
   <g transform="translate(0, 55)">
-    <g transform="translate(0, 0)">
-      ${statNodes
-        .split("</g>")
-        .filter((s) => s.trim())
-        .map((node, i) => `<g transform="translate(0, ${i * lheight})">${node}</g>`)
-        .join("")}
-    </g>
+    ${statNodes}
   </g>
   
   ${rankCircle}

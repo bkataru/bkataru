@@ -15,6 +15,8 @@ export interface TopLangsOptions {
   langs_count?: number;
   hide?: string[]; // languages to hide
   disable_animations?: boolean;
+  total_size?: number; // Total bytes across all languages (for subtitle)
+  total_repos?: number; // Total number of repositories analyzed
 }
 
 // Constants
@@ -26,7 +28,7 @@ const MAXIMUM_LANGS_COUNT = 20;
 
 const NORMAL_LAYOUT_DEFAULT_LANGS_COUNT = 5;
 const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 6;
-const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 5;
+const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 10;
 
 /**
  * Convert degrees to radians.
@@ -155,15 +157,29 @@ function createDonutPaths(
 }
 
 /**
+ * Format bytes into human-readable size.
+ */
+function formatBytes(bytes: number): string {
+  if (bytes === 0) return "0 B";
+  const units = ["B", "KB", "MB", "GB"];
+  const k = 1024;
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  const value = bytes / Math.pow(k, i);
+  return `${value.toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+}
+
+/**
  * Create compact language node.
  */
 function createCompactLangNode(
   lang: Language,
   totalSize: number,
-  index: number
+  index: number,
+  showRepoCount: boolean = false
 ): string {
   const percentages = (lang.size / totalSize) * 100;
-  const displayValue = `${percentages.toFixed(2)}%`;
+  const displayValue = `${percentages.toFixed(1)}%`;
+  const repoInfo = showRepoCount && lang.count > 0 ? ` (${lang.count} repo${lang.count !== 1 ? "s" : ""})` : "";
   const staggerDelay = (index + 3) * 150;
   const color = lang.color || DEFAULT_LANG_COLOR;
 
@@ -171,7 +187,7 @@ function createCompactLangNode(
     <g class="stagger" style="animation-delay: ${staggerDelay}ms">
       <circle cx="5" cy="6" r="5" fill="${color}" />
       <text data-testid="lang-name" x="15" y="10" class="lang-name">
-        ${lang.name} ${displayValue}
+        ${lang.name} ${displayValue}${repoInfo}
       </text>
     </g>
   `;
@@ -182,12 +198,13 @@ function createCompactLangNode(
  */
 function createDonutLanguagesNode(
   langs: Language[],
-  totalSize: number
+  totalSize: number,
+  showRepoCount: boolean = false
 ): string {
   return langs
     .map((lang, index) => {
       const y = index * 32;
-      return `<g transform="translate(0, ${y})">${createCompactLangNode(lang, totalSize, index)}</g>`;
+      return `<g transform="translate(0, ${y})">${createCompactLangNode(lang, totalSize, index, showRepoCount)}</g>`;
     })
     .join("");
 }
@@ -197,7 +214,8 @@ function createDonutLanguagesNode(
  */
 function renderDonutLayout(
   langs: Language[],
-  totalLanguageSize: number
+  totalLanguageSize: number,
+  showRepoCount: boolean = false
 ): string {
   const donutSize = 170;
   const centerX = donutSize / 2;
@@ -239,13 +257,15 @@ function renderDonutLayout(
 
   const donut = `<svg width="${donutSize}" height="${donutSize}">${donutPaths}</svg>`;
   const verticalOffset = donutCenterTranslation(langs.length);
+  // Position donut further right when showing repo counts to accommodate longer legend text
+  const donutXOffset = showRepoCount ? 195 : 150;
 
   return `
     <g transform="translate(0, 0)">
       <g transform="translate(0, 0)">
-        ${createDonutLanguagesNode(langs, totalLanguageSize)}
+        ${createDonutLanguagesNode(langs, totalLanguageSize, showRepoCount)}
       </g>
-      <g transform="translate(150, ${verticalOffset})">
+      <g transform="translate(${donutXOffset}, ${verticalOffset})">
         ${donut}
       </g>
     </g>
@@ -363,6 +383,8 @@ export function renderTopLanguages(
     langs_count = getDefaultLanguagesCountByLayout(layout),
     hide,
     disable_animations = false,
+    total_size,
+    total_repos,
   } = options;
 
   const themeColors = getTheme(theme);
@@ -377,6 +399,10 @@ export function renderTopLanguages(
     hide
   );
 
+  // Use provided total_size if available (includes hidden languages), otherwise use visible total
+  const displayTotalSize = total_size ?? totalLanguageSize;
+  const showRepoCount = total_repos !== undefined && total_repos > 0;
+
   let width = card_width
     ? isNaN(card_width)
       ? DEFAULT_CARD_WIDTH
@@ -385,27 +411,48 @@ export function renderTopLanguages(
 
   let height: number;
   let finalLayout: string;
+  // Add extra height for subtitle
+  const subtitleHeight = (total_size || total_repos) ? 18 : 0;
 
   if (langs.length === 0) {
     height = 90;
     finalLayout = `<text x="${CARD_PADDING}" y="11" class="stat bold" fill="${textColor}">No languages data</text>`;
   } else if (layout === "donut") {
-    height = calculateDonutLayoutHeight(langs.length);
-    width = width + 50; // Add padding for donut
-    finalLayout = renderDonutLayout(langs, totalLanguageSize);
+    height = calculateDonutLayoutHeight(langs.length) + subtitleHeight;
+    // Add extra width to accommodate repo counts in legend
+    width = showRepoCount ? width + 100 : width + 50;
+    finalLayout = renderDonutLayout(langs, totalLanguageSize, showRepoCount);
   } else {
     // Normal layout
-    height = calculateNormalLayoutHeight(langs.length);
+    height = calculateNormalLayoutHeight(langs.length) + subtitleHeight;
     finalLayout = renderNormalLayout(langs, width, totalLanguageSize);
   }
 
   const cssStyles = getStyles(textColor, disable_animations);
   const title = "Most Used Languages";
 
+  // Build subtitle
+  let subtitle = "";
+  if (total_size || total_repos) {
+    const parts: string[] = [];
+    if (total_size && total_size > 0) {
+      parts.push(formatBytes(total_size));
+    }
+    if (total_repos && total_repos > 0) {
+      parts.push(`${total_repos} repo${total_repos !== 1 ? "s" : ""}`);
+    }
+    if (parts.length > 0) {
+      subtitle = parts.join(" across ");
+    }
+  }
+
   // Border style
   const borderStyle = hide_border
     ? ""
     : `stroke="${borderColor}" stroke-width="1"`;
+
+  // Calculate content Y offset based on whether we have a subtitle
+  const contentYOffset = subtitle ? 55 + subtitleHeight : 55;
 
   return `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -416,10 +463,11 @@ export function renderTopLanguages(
   <g transform="translate(25, 35)">
     <g transform="translate(0, 0)">
       <text x="0" y="0" class="stat bold" style="font-size: 18px; fill: ${titleColor};">${title}</text>
+      ${subtitle ? `<text x="0" y="18" class="lang-name stagger" style="animation-delay: 150ms; font-size: 11px; opacity: 0.8;">${subtitle}</text>` : ""}
     </g>
   </g>
   
-  <svg data-testid="lang-items" x="${CARD_PADDING}" y="55">
+  <svg data-testid="lang-items" x="${CARD_PADDING}" y="${contentYOffset}">
     ${finalLayout}
   </svg>
 </svg>`.trim();

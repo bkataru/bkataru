@@ -93,7 +93,6 @@ function getStyles(
     .rank-text {
       font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif;
       fill: ${textColor};
-      animation: scaleInAnimation 0.3s ease-in-out forwards;
     }
     .rank-percentile-header {
       font-size: 14px;
@@ -120,17 +119,11 @@ function getStyles(
       stroke-width: 6;
       stroke-linecap: round;
       opacity: 0.8;
-      transform-origin: -10px 8px;
-      transform: rotate(-90deg);
       animation: rankAnimation 1s forwards ease-in-out;
     }
     @keyframes fadeInAnimation {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-    @keyframes scaleInAnimation {
-      from { transform: translate(-5px, 5px) scale(0); }
-      to { transform: translate(-5px, 5px) scale(1); }
     }
     ${progressAnimation}
   `;
@@ -175,9 +168,11 @@ function createTextNode(
  * Render rank icon based on the rank level.
  */
 function renderRankIcon(level: string, percentile: number): string {
+  // Circle is centered at cx="-10" cy="8" with radius 40
+  // Position text at the circle's center x, with y offsets for vertical centering
   return `
-    <text x="-5" y="0" text-anchor="middle" class="rank-text rank-percentile-header">Top</text>
-    <text x="-5" y="20" text-anchor="middle" class="rank-text rank-percentile-text">${Math.round(percentile)}%</text>
+    <text x="-10" y="0" text-anchor="middle" class="rank-text rank-percentile-header">Top</text>
+    <text x="-10" y="18" text-anchor="middle" class="rank-text rank-percentile-text">${Math.round(percentile)}%</text>
   `;
 }
 
@@ -338,10 +333,18 @@ export function renderStatsCard(
 
   // Render rank circle
   const rankXTranslation = width - 95;
+  // Calculate vertical center of stats content area
+  // Stats start at y=55 and each stat is lheight pixels tall
+  // The rank circle is centered at cy=8 within its group
+  const statsStartY = 55;
+  const statsHeight = statItems.length * lheight;
+  const statsCenterY = statsStartY + statsHeight / 2;
+  const rankCircleCenterOffset = 8; // cy="8" in the circle element
+  const rankYTranslation = statsCenterY - rankCircleCenterOffset;
   const rankCircle = hide_rank
     ? ""
     : `
-    <g data-testid="rank-circle" transform="translate(${rankXTranslation}, ${height / 2 - 50})">
+    <g data-testid="rank-circle" transform="translate(${rankXTranslation}, ${rankYTranslation})">
       <circle class="rank-circle-rim" cx="-10" cy="8" r="40" />
       <circle class="rank-circle" cx="-10" cy="8" r="40" />
       <g class="rank-text">

@@ -28,7 +28,7 @@ export default async function handler(
     const layout = (req.query.layout as string) || "donut";
     const langsCount = req.query.langs_count
       ? parseInt(req.query.langs_count as string, 10)
-      : 8;
+      : undefined; // Let the card use its layout-specific default
     const hide = parseArray(req.query.hide as string) ?? [];
     const excludeRepo = parseArray(req.query.exclude_repo as string) ?? [];
 
@@ -37,16 +37,18 @@ export default async function handler(
     const selectedLayout = validLayouts.includes(layout) ? layout : "donut";
 
     // Fetch top languages
-    const langs = await fetchTopLanguages(username, excludeRepo);
+    const langResult = await fetchTopLanguages(username, excludeRepo);
 
     // Render the card
-    const svg = renderTopLanguages(langs, {
+    const svg = renderTopLanguages(langResult.languages, {
       theme,
       hide_border: hideBorder,
       card_width: cardWidth,
       layout: selectedLayout as "normal" | "compact" | "donut" | "donut-vertical" | "pie",
       langs_count: langsCount,
       hide,
+      total_size: langResult.totalSize,
+      total_repos: langResult.totalRepos,
     });
 
     // Set cache headers

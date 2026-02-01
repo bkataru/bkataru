@@ -3,7 +3,7 @@
  * Fetches language breakdown across user's repositories
  */
 import { graphqlRequest, GitHubApiError } from './github.js';
-import type { LanguageData, Language, LanguageQueryResponse } from '../types/index.js';
+import type { LanguageData, Language, LanguageQueryResponse, LanguageResult } from '../types/index.js';
 
 // GraphQL query for fetching repository languages
 const LANGUAGES_QUERY = `
@@ -35,13 +35,13 @@ const LANGUAGES_QUERY = `
  * 
  * @param username - GitHub username to fetch languages for
  * @param excludeRepos - Optional list of repository names to exclude
- * @returns Language data with name, color, size (bytes), and repo count
+ * @returns Language result with language data, total size, and repo count
  * @throws GitHubApiError if the user is not found or API request fails
  */
 export async function fetchTopLanguages(
   username: string,
   excludeRepos: string[] = []
-): Promise<LanguageData> {
+): Promise<LanguageResult> {
   if (!username) {
     throw new GitHubApiError('Username is required', 'MISSING_PARAM');
   }
@@ -62,12 +62,17 @@ export async function fetchTopLanguages(
     (repo) => !excludeSet.has(repo.name)
   );
 
+  // Track total repos with languages
+  const totalRepos = repoNodes.filter(repo => repo.languages.edges.length > 0).length;
+
   // Aggregate language data across all repositories
   const languageMap: Map<string, Language> = new Map();
+  let totalSize = 0;
 
   for (const repo of repoNodes) {
     for (const edge of repo.languages.edges) {
       const langName = edge.node.name;
+      totalSize += edge.size;
       const existing = languageMap.get(langName);
 
       if (existing) {
@@ -91,10 +96,14 @@ export async function fetchTopLanguages(
     ([, a], [, b]) => b.size - a.size
   );
 
-  const result: LanguageData = {};
+  const languages: LanguageData = {};
   for (const [name, lang] of sortedEntries) {
-    result[name] = lang;
+    languages[name] = lang;
   }
 
-  return result;
+  return {
+    languages,
+    totalSize,
+    totalRepos,
+  };
 }

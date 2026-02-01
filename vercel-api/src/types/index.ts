@@ -35,6 +35,13 @@ export interface Language {
 
 export type LanguageData = Record<string, Language>;
 
+// Extended language result with stats
+export interface LanguageResult {
+  languages: LanguageData;
+  totalSize: number;
+  totalRepos: number;
+}
+
 // Contribution types
 export interface ContributionDay {
   contributionCount: number;

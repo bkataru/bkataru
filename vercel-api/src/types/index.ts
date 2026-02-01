@@ -40,6 +40,7 @@ export interface LanguageResult {
   languages: LanguageData;
   totalSize: number;
   totalRepos: number;
+  totalLanguages: number;
 }
 
 // Contribution types

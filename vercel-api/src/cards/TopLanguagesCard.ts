@@ -17,6 +17,7 @@ export interface TopLangsOptions {
   disable_animations?: boolean;
   total_size?: number; // Total bytes across all languages (for subtitle)
   total_repos?: number; // Total number of repositories analyzed
+  total_languages?: number; // Total number of unique languages detected
 }
 
 // Constants
@@ -385,6 +386,7 @@ export function renderTopLanguages(
     disable_animations = false,
     total_size,
     total_repos,
+    total_languages,
   } = options;
 
   const themeColors = getTheme(theme);
@@ -411,8 +413,9 @@ export function renderTopLanguages(
 
   let height: number;
   let finalLayout: string;
-  // Add extra height for subtitle
-  const subtitleHeight = (total_size || total_repos) ? 18 : 0;
+  // Add extra height for subtitle (one or two lines)
+  const hasSubtitle = total_repos || total_languages;
+  const subtitleHeight = hasSubtitle ? 18 : 0;
 
   if (langs.length === 0) {
     height = 90;
@@ -431,18 +434,18 @@ export function renderTopLanguages(
   const cssStyles = getStyles(textColor, disable_animations);
   const title = "Most Used Languages";
 
-  // Build subtitle
+  // Build subtitle: "Active in X languages, based on Y repositories"
   let subtitle = "";
-  if (total_size || total_repos) {
+  if (total_languages || total_repos) {
     const parts: string[] = [];
-    if (total_size && total_size > 0) {
-      parts.push(formatBytes(total_size));
+    if (total_languages && total_languages > 0) {
+      parts.push(`Active in ${total_languages} language${total_languages !== 1 ? "s" : ""}`);
     }
     if (total_repos && total_repos > 0) {
-      parts.push(`${total_repos} repo${total_repos !== 1 ? "s" : ""}`);
+      parts.push(`based on ${total_repos} repositor${total_repos !== 1 ? "ies" : "y"}`);
     }
     if (parts.length > 0) {
-      subtitle = parts.join(" across ");
+      subtitle = parts.join(", ");
     }
   }
 
@@ -452,7 +455,7 @@ export function renderTopLanguages(
     : `stroke="${borderColor}" stroke-width="1"`;
 
   // Calculate content Y offset based on whether we have a subtitle
-  const contentYOffset = subtitle ? 55 + subtitleHeight : 55;
+  const contentYOffset = hasSubtitle ? 55 + subtitleHeight : 55;
 
   return `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">

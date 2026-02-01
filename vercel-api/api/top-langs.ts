@@ -49,6 +49,7 @@ export default async function handler(
       hide,
       total_size: langResult.totalSize,
       total_repos: langResult.totalRepos,
+      total_languages: langResult.totalLanguages,
     });
 
     // Set cache headers

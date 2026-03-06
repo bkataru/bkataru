@@ -64,6 +64,7 @@ Find me tinkering at
 
 Check out:
 - [The Impulses Project](https://github.com/impulsesproject), my love letter to the field of software engineering
+- the [gods from the machine](https://godsfromthemachine.github.io/) project, a place for some of my bleeding-edge ideas & tinkerings surrounding the future of intelligent software
 - the [planckeon labs](https://planckeon.github.io/) venture, what I consider my magnum opus 😊
 
 <div align="center"> 

@@ -76,25 +76,25 @@ Check out:
 <div align="center">
 
 <picture>
-  <source media="(max-width: 768px)" srcset="https://bkataru-widgets.vercel.app/api/top-langs?v=3">
-  <img width="49%" src="https://bkataru-widgets.vercel.app/api/top-langs?v=3" alt="Top Languages" style="max-width: 100%;" />
+  <source media="(max-width: 768px)" srcset="https://bkataru-widgets.vercel.app/api/top-langs?v=4">
+  <img width="49%" src="https://bkataru-widgets.vercel.app/api/top-langs?v=4" alt="Top Languages" style="max-width: 100%;" />
 </picture>
 <picture>
-  <source media="(max-width: 768px)" srcset="https://bkataru-widgets.vercel.app/api/stats?v=3">
-  <img width="49%" src="https://bkataru-widgets.vercel.app/api/stats?v=3" alt="GitHub Stats" style="max-width: 100%;" />
+  <source media="(max-width: 768px)" srcset="https://bkataru-widgets.vercel.app/api/stats?v=4">
+  <img width="49%" src="https://bkataru-widgets.vercel.app/api/stats?v=4" alt="GitHub Stats" style="max-width: 100%;" />
 </picture>
 
 </div>
 
 <div align="center">
 
-<img width="100%" src="https://bkataru-widgets.vercel.app/api/streak?v=3" alt="GitHub Streak" style="max-width: 930px;" />
+<img width="100%" src="https://bkataru-widgets.vercel.app/api/streak?v=4" alt="GitHub Streak" style="max-width: 930px;" />
 
 </div>
 
 <div align="center">
 
-<img width="100%" src="https://bkataru-widgets.vercel.app/api/activity-graph?v=3" alt="Activity Graph" style="max-width: 930px;" />
+<img width="100%" src="https://bkataru-widgets.vercel.app/api/activity-graph?v=4" alt="Activity Graph" style="max-width: 930px;" />
 
 </div>
 
